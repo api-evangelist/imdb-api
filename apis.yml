@@ -1,0 +1,32 @@
+aid: imdb-api
+name: IMDb-API
+description: "API for receiving movie, serial and cast information"
+url: https://imdb-api.com/
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Video"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Video
+  - Public APIs
+apis:
+  - name: IMDb-API
+    description: "API for receiving movie, serial and cast information"
+    humanURL: https://imdb-api.com/
+    baseURL: https://imdb-api.com/
+    tags:
+      - Video
+    properties:
+      - type: Documentation
+        url: https://imdb-api.com/
+common:
+  - type: Website
+    url: https://imdb-api.com/
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
