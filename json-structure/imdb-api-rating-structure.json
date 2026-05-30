@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-05/schema",
+  "name": "Rating",
+  "description": "Structural definition of an IMDb-API Rating aggregate spanning IMDb, Metacritic, Rotten Tomatoes, TheMovieDb and FilmAffinity.",
+  "type": "object",
+  "fields": {
+    "imDbId": {"type": "string", "purpose": "identifier"},
+    "title": {"type": "string", "purpose": "display"},
+    "year": {"type": "string", "purpose": "temporal"},
+    "imDb": {"type": "string", "purpose": "rating", "source": "IMDb"},
+    "metacritic": {"type": "string", "purpose": "rating", "source": "Metacritic"},
+    "theMovieDb": {"type": "string", "purpose": "rating", "source": "TheMovieDb"},
+    "rottenTomatoes": {"type": "string", "purpose": "rating", "source": "Rotten Tomatoes"},
+    "filmAffinity": {"type": "string", "purpose": "rating", "source": "FilmAffinity"}
+  }
+}

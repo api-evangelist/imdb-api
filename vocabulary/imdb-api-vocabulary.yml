@@ -1,0 +1,73 @@
+name: imdb-api-vocabulary
+title: IMDb-API Vocabulary
+description: >-
+  Controlled vocabulary mapping IMDb-API resources and dimensions to entertainment
+  domain concepts, schema.org types and Naftiko governance axes.
+version: "0.1.0"
+provider: imdb-api
+domain: Entertainment / Media Metadata
+concepts:
+  - id: title
+    label: Title
+    description: A movie, series, episode, short, video or video game record (IMDb tt-id).
+    schemaOrg: [schema:CreativeWork, schema:Movie, schema:TVSeries, schema:TVEpisode]
+    capabilities: [getTitle, search, searchMovie, searchSeries, getFullCast, getTop250Movies, getMostPopularMovies]
+  - id: name
+    label: Person
+    description: A cast or crew member (IMDb nm-id).
+    schemaOrg: [schema:Person]
+    capabilities: [getName, getNameAwards, searchName]
+  - id: company
+    label: Production Company
+    description: A studio or production house (IMDb co-id).
+    schemaOrg: [schema:Organization, schema:ProductionCompany]
+    capabilities: [getCompany, searchCompany]
+  - id: rating
+    label: Rating
+    description: An aggregate or external review score.
+    schemaOrg: [schema:AggregateRating]
+    capabilities: [getRatings, getUserRatings]
+  - id: review
+    label: Review
+    description: A user or critic review of a title.
+    schemaOrg: [schema:Review]
+    capabilities: [getReviews, getMetacriticReviews]
+  - id: media-asset
+    label: Media Asset
+    description: A poster, image, trailer or YouTube video for a title.
+    schemaOrg: [schema:ImageObject, schema:VideoObject]
+    capabilities: [getPosters, getImages, getTrailer, getYouTubeTrailer, resizeImage, resizePoster]
+  - id: list
+    label: Curated List
+    description: A ranked or themed list (Top 250, Most Popular, IMDb user lists, Box Office).
+    schemaOrg: [schema:ItemList]
+    capabilities: [getTop250Movies, getTop250TVs, getMostPopularMovies, getMostPopularTVs, getInTheaters, getComingSoon, getBoxOffice, getBoxOfficeAllTime, getIMDbList]
+  - id: external-link
+    label: External Link
+    description: Cross-platform identifier or URL (Wikipedia, Netflix, FilmAffinity, TheTVDB).
+    schemaOrg: [schema:URL]
+    capabilities: [getExternalSites, getWikipedia]
+  - id: usage
+    label: Usage
+    description: Account quota and consumption signal.
+    capabilities: [getUsage]
+dimensions:
+  operational:
+    - identification
+    - search
+    - retrieval
+    - listing
+    - measurement
+  governance:
+    - api-key-authentication
+    - daily-quota
+    - third-party-data-aggregation
+    - non-official-imdb
+tags:
+  - Entertainment
+  - Movies
+  - TV
+  - Video
+  - Metadata
+  - Ratings
+  - Public APIs

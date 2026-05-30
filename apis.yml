@@ -1,32 +1,205 @@
 aid: imdb-api
 name: IMDb-API
-description: "API for receiving movie, serial and cast information"
-url: https://imdb-api.com/
+description: >-
+  Community web service (operated under the IMDb-API / TV-API brand) providing
+  movie, TV series and cast information in JSON. Aggregates data from IMDb,
+  TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
+  YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Operated
+  by the IMDb-API GitHub user (open source C# client library and Windows client
+  app). NOT an official IMDb / Amazon product — IMDb itself does not expose a
+  public API; community scrapers such as this one (alongside OMDb, TMDB and
+  Apify's IMDb scraper) fill the gap.
+url: https://tv-api.com/
+image: https://tv-api.com/images/original/Apple-TV-Plus-Logo.png
+humanURL: https://tv-api.com/
+baseURL: https://tv-api.com/
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-30'
 x-source: public-apis/public-apis
-x-category: "Video"
-x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+x-category: Video
+x-tier: 2
+x-tier-reason: enriched-with-real-openapi-and-pricing
 tags:
   - Video
+  - Movies
+  - TV
+  - Entertainment
+  - Metadata
+  - Ratings
   - Public APIs
 apis:
   - name: IMDb-API
-    description: "API for receiving movie, serial and cast information"
-    humanURL: https://imdb-api.com/
-    baseURL: https://imdb-api.com/
+    description: >-
+      REST JSON web service for movie, TV series, cast, ratings, images,
+      trailers, lists and box office data. 30+ endpoints organized into Search,
+      Title, Name, Lists, External and Tools categories. API key required;
+      embedded in the request path. Originally documented at imdb-api.com and
+      now served from tv-api.com.
+    humanURL: https://tv-api.com/
+    baseURL: https://tv-api.com/
     tags:
       - Video
+      - Movies
+      - TV
+      - Metadata
+      - Ratings
     properties:
       - type: Documentation
-        url: https://imdb-api.com/
+        url: https://tv-api.com/api
+      - type: APIReference
+        url: https://tv-api.com/api
+      - type: SignUp
+        url: https://tv-api.com/Identity/Account/Register
+      - type: Authentication
+        url: https://tv-api.com/api#authentication
+      - type: OpenAPI
+        url: openapi/imdb-api-openapi.yml
+      - type: JSONSchema
+        url: json-schema/imdb-api-title-schema.json
+      - type: JSONSchema
+        url: json-schema/imdb-api-rating-schema.json
+      - type: JSONSchema
+        url: json-schema/imdb-api-name-schema.json
+      - type: JSONSchema
+        url: json-schema/imdb-api-search-result-schema.json
+      - type: JSONSchema
+        url: json-schema/imdb-api-usage-schema.json
+      - type: JSONStructure
+        url: json-structure/imdb-api-title-structure.json
+      - type: JSONStructure
+        url: json-structure/imdb-api-rating-structure.json
+      - type: JSONStructure
+        url: json-structure/imdb-api-name-structure.json
+      - type: JSON-LD
+        url: json-ld/imdb-api-context.jsonld
+      - type: Example
+        url: examples/imdb-api-search-example.json
+      - type: Example
+        url: examples/imdb-api-title-example.json
+      - type: Example
+        url: examples/imdb-api-ratings-example.json
+      - type: Example
+        url: examples/imdb-api-fullcast-example.json
+      - type: Example
+        url: examples/imdb-api-top250movies-example.json
+      - type: Example
+        url: examples/imdb-api-usage-example.json
+      - type: RateLimits
+        url: rate-limits/imdb-api-rate-limits.yml
+      - type: Plans
+        url: plans/imdb-api-plans-pricing.yml
 common:
   - type: Website
+    url: https://tv-api.com/
+  - type: LegacyWebsite
     url: https://imdb-api.com/
+  - type: Pricing
+    url: https://tv-api.com/pricing
+  - type: SignUp
+    url: https://tv-api.com/Identity/Account/Register
+  - type: GitHubOrganization
+    url: https://github.com/IMDb-API
+  - type: GitHubRepository
+    url: https://github.com/IMDb-API/IMDbApiLib
+  - type: GitHubRepository
+    url: https://github.com/IMDb-API/IMDbApiClient
+  - type: SDK
+    name: IMDbApiLib (C# / NuGet)
+    url: https://github.com/IMDb-API/IMDbApiLib
+  - type: Client
+    name: IMDbApiClient (Windows desktop)
+    url: https://github.com/IMDb-API/IMDbApiClient
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+  - type: SpectralRules
+    url: rules/imdb-api-rules.yml
+  - type: Vocabulary
+    url: vocabulary/imdb-api-vocabulary.yml
+  - type: NaftikoCapability
+    url: capabilities/shared/imdb-api-shared.yaml
+  - type: NaftikoCapability
+    url: capabilities/title-enrichment.yaml
+  - type: NaftikoCapability
+    url: capabilities/trending-discovery.yaml
+  - type: NaftikoCapability
+    url: capabilities/person-profile.yaml
+  - type: Plans
+    url: plans/imdb-api-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/imdb-api-rate-limits.yml
+  - type: FinOps
+    url: finops/imdb-api-finops.yml
+  - type: Features
+    data:
+      - name: Title metadata
+        description: Full movie / series / episode metadata by IMDb tt-id.
+      - name: Aggregated ratings
+        description: IMDb, Metacritic, Rotten Tomatoes, TMDB and FilmAffinity scores in a single response.
+      - name: Full cast and crew
+        description: Directors, writers, actors and other crew with IMDb nm-ids.
+      - name: Search
+        description: Title, movie, series, name, episode, company and keyword search; plus faceted advanced search.
+      - name: Curated lists
+        description: Top 250 movies and TV, Most Popular, In Theaters, Coming Soon, Weekend & All-Time Box Office.
+      - name: Media assets
+        description: Posters, image galleries, trailers and YouTube trailer URLs.
+      - name: External links
+        description: Cross-platform identifiers (Netflix, FilmAffinity, TheTVDB) and Wikipedia plot summaries.
+      - name: Reviews
+        description: User reviews and Metacritic critic reviews.
+      - name: Image utilities
+        description: Server-side resize for arbitrary URLs and preset-token poster resizing.
+      - name: Usage telemetry
+        description: Per-key daily quota consumption via /API/Usage.
+  - type: UseCases
+    data:
+      - name: Media catalog enrichment
+        description: Hydrate an in-house movie or TV catalog with posters, plots, cast and ratings.
+      - name: Recommendation systems
+        description: Drive what-to-watch suggestions from Top 250, Most Popular and similar-titles signals.
+      - name: Review aggregation
+        description: Surface IMDb, Metacritic and Rotten Tomatoes scores in a single UI.
+      - name: Box office dashboards
+        description: Track weekend and all-time box office performance.
+      - name: Entertainment chatbots
+        description: Answer movie and cast questions from a conversational agent.
+  - type: Integrations
+    data:
+      - name: IMDb
+        description: Primary source of title and name ids.
+      - name: TheMovieDb (TMDB)
+        description: Source of secondary ratings and additional metadata.
+      - name: Rotten Tomatoes
+        description: Critic and audience scores.
+      - name: Metacritic
+        description: Metascore and critic reviews.
+      - name: FilmAffinity
+        description: Community ratings.
+      - name: TheTVDB
+        description: External TV id linkage.
+      - name: Wikipedia
+        description: Plot summaries and PlotLocal in multiple languages.
+      - name: YouTube
+        description: Trailer video resolution.
+      - name: Apify
+        description: Alternative IMDb data path documented in the broader ecosystem.
+      - name: OMDb API
+        description: Adjacent community IMDb wrapper consumers often compare.
+  - type: Solutions
+    data:
+      - name: Free tier
+        description: 100 requests/day for hobbyists and prototypes.
+      - name: Standard / Plus
+        description: Small-to-growing applications (5k-10k requests/day).
+      - name: Premium
+        description: Production applications (30k-999k requests/day, unlimited IP authorizations).
+  - type: Tools
+    data:
+      - name: IMDbApiLib (NuGet)
+        description: Official C# wrapper maintained in the IMDb-API GitHub org.
+      - name: IMDbApiClient
+        description: Free Windows desktop client app exercising the API.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

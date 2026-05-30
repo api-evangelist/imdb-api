@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/imdb-api/json-schema/imdb-api-search-result-schema.json",
+  "title": "SearchResult",
+  "description": "A single search result hit from any IMDb-API Search endpoint.",
+  "type": "object",
+  "required": ["id"],
+  "properties": {
+    "id": {"type": "string"},
+    "resultType": {"type": "string", "enum": ["Title", "Movie", "Series", "Name", "Episode", "Company", "Keyword"]},
+    "image": {"type": "string", "format": "uri"},
+    "title": {"type": "string"},
+    "description": {"type": "string"}
+  }
+}

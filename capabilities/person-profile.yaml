@@ -1,0 +1,36 @@
+apiVersion: naftiko.dev/v1alpha1
+kind: Capability
+metadata:
+  name: person-profile
+  description: >-
+    Build a full person profile from a name search: locate the IMDb nm-id, fetch
+    biography, awards and images.
+spec:
+  provider: imdb-api
+  steps:
+    - id: searchName
+      uses: imdb-api.searchName
+      inputs:
+        expression: ${input.query}
+      output: searchResults
+    - id: pickFirst
+      type: transform
+      expression: searchResults.results[0].id
+      output: nameId
+    - id: name
+      uses: imdb-api.getName
+      inputs:
+        id: ${steps.pickFirst.nameId}
+      output: name
+    - id: awards
+      uses: imdb-api.getNameAwards
+      inputs:
+        id: ${steps.pickFirst.nameId}
+      output: awards
+  output:
+    profile: ${steps.name.name}
+    awards: ${steps.awards.awards}
+  governance:
+    quotaImpact: 3
+    readOnly: true
+    tags: [cast-research, biography]

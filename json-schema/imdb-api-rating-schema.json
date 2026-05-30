@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/imdb-api/json-schema/imdb-api-rating-schema.json",
+  "title": "Rating",
+  "description": "Aggregated ratings from IMDb, Metacritic, Rotten Tomatoes, TMDB and FilmAffinity for a title.",
+  "type": "object",
+  "required": ["imDbId"],
+  "properties": {
+    "imDbId": {"type": "string", "pattern": "^tt\\d+$"},
+    "title": {"type": "string"},
+    "fullTitle": {"type": "string"},
+    "type": {"type": "string"},
+    "year": {"type": "string"},
+    "imDb": {"type": "string"},
+    "metacritic": {"type": "string"},
+    "theMovieDb": {"type": "string"},
+    "rottenTomatoes": {"type": "string"},
+    "filmAffinity": {"type": "string"},
+    "errorMessage": {"type": "string"}
+  }
+}

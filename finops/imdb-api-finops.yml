@@ -1,0 +1,42 @@
+finopsSpec: "0.1"
+focusAligned: true
+provider: imdb-api
+providerName: IMDb-API (TV-API)
+documentationUrl: https://tv-api.com/pricing
+billingProfile:
+  cadence: monthly
+  model: non-recurring
+  unitOfMeasure: requests
+  meteringWindow: 1d
+  currency: USD
+  invoicing: prepaid (user purchases a plan tier)
+  discounts:
+    - id: crypto-15
+      description: 15% discount on plan purchase when paid in cryptocurrency.
+      percent: 15
+focusMapping:
+  ChargeCategory: Usage
+  ChargeFrequency: One-Time
+  PricingCategory: Standard
+  CommitmentDiscountCategory: Spend
+  ServiceCategory: Media & Entertainment / Data API
+  ConsumedQuantity: requests per day
+  ConsumedUnit: API call
+  ListUnitPrice: derived from plan price / daily quota
+costAllocation:
+  byApiKey: true
+  byPlanTier: true
+  byEndpoint: derived (caller-side instrumentation required; provider does not break down per endpoint)
+optimizationLevers:
+  - Right-size plan tier against historic /API/Usage counts before upgrading.
+  - Cache stable resources (Top250, NameAwards, Ratings on classic titles) to reduce quota burn.
+  - Avoid combining many options on the Title endpoint (each option consumes additional quota); call dedicated endpoints (FullCast, Ratings, Posters) selectively.
+  - Use ResizeImage / ResizePoster to deliver smaller assets and avoid client-side re-requests.
+  - Pay annually-in-advance via the largest plan upgrade rather than monthly re-purchase when usage is predictable.
+forecasting:
+  signals:
+    - /API/Usage count vs maximum
+    - plan-day-of-month
+  driftDetection:
+    - "more than 80% of daily quota consumed before 18:00 local => plan likely undersized"
+    - "less than 10% of daily quota consumed across 30d => plan likely oversized"

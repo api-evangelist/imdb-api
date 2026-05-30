@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/imdb-api/json-schema/imdb-api-title-schema.json",
+  "title": "Title",
+  "description": "An IMDb-API title (movie, series or episode) record.",
+  "type": "object",
+  "required": ["id", "title"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^tt\\d+$", "description": "IMDb title id."},
+    "title": {"type": "string"},
+    "originalTitle": {"type": "string"},
+    "fullTitle": {"type": "string"},
+    "type": {"type": "string", "enum": ["Movie", "TVSeries", "TVEpisode", "Short", "Video", "TVMovie", "VideoGame"]},
+    "year": {"type": "string"},
+    "image": {"type": "string", "format": "uri"},
+    "releaseDate": {"type": "string"},
+    "runtimeMins": {"type": "string"},
+    "plot": {"type": "string"},
+    "awards": {"type": "string"},
+    "directors": {"type": "string"},
+    "writers": {"type": "string"},
+    "stars": {"type": "string"},
+    "genres": {"type": "string"},
+    "companies": {"type": "string"},
+    "countries": {"type": "string"},
+    "languages": {"type": "string"},
+    "contentRating": {"type": "string"},
+    "imDbRating": {"type": "string"},
+    "imDbRatingVotes": {"type": "string"},
+    "metacriticRating": {"type": "string"}
+  }
+}

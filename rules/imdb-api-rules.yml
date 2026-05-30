@@ -1,0 +1,57 @@
+extends: [[spectral:oas, all]]
+documentationUrl: https://tv-api.com/api
+rules:
+  imdb-api-operation-id-camelcase:
+    description: All operationIds MUST be camelCase (e.g. getTitle, searchMovie).
+    severity: error
+    given: $.paths.*.*
+    then:
+      field: operationId
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]+$'
+  imdb-api-summary-title-case:
+    description: Operation summaries MUST use Title Case.
+    severity: warn
+    given: $.paths.*.*.summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*)([\\s\\-][A-Z0-9a-z][a-zA-Z0-9]*)*$'
+  imdb-api-paths-versioned-via-language:
+    description: Public paths MUST start with a two-letter language path segment or the /API/ shared root for tools.
+    severity: warn
+    given: $.paths
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        match: '^/(\\{lang\\}/API/|API/)'
+  imdb-api-apikey-in-path:
+    description: Endpoints that require an API key MUST take it as a path or query parameter named apiKey.
+    severity: warn
+    given: $.paths..parameters[?(@.required==true)]
+    then:
+      field: name
+      function: truthy
+  imdb-api-tt-id-pattern:
+    description: IMDb title id parameters MUST validate against ^tt\\d+$.
+    severity: warn
+    given: $.paths..parameters[?(@.name=='id' && @.in=='path')]
+    then:
+      field: schema.pattern
+      function: truthy
+  imdb-api-no-empty-tags:
+    description: Operations MUST be tagged.
+    severity: error
+    given: $.paths.*.*
+    then:
+      field: tags
+      function: truthy
+  imdb-api-info-contact:
+    description: info.contact MUST be present so consumers know who maintains the service.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy

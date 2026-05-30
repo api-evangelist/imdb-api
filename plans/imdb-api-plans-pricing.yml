@@ -1,0 +1,79 @@
+apiCommonsPlans: "0.1"
+provider: imdb-api
+providerName: IMDb-API (TV-API)
+documentationUrl: https://tv-api.com/pricing
+currency: USD
+billing:
+  cadence: monthly
+  model: non-recurring
+  discounts:
+    - id: crypto
+      description: 15% discount when paid via cryptocurrency.
+      percent: 15
+plans:
+  - id: free
+    name: Free
+    price:
+      amount: 0
+      currency: USD
+      interval: month
+    quota:
+      requestsPerDay: 100
+    features:
+      - Limited IP authorizations
+      - Limited concurrency
+      - Limited network priority
+    audience: trial / hobbyist
+  - id: standard
+    name: Standard
+    price:
+      amount: 11.24
+      currency: USD
+      interval: month
+      startingAt: true
+    quota:
+      requestsPerDay: 5000
+    features:
+      - Medium IP authorizations
+      - Medium concurrency
+      - Medium network priority
+    audience: small applications
+  - id: plus
+    name: Plus
+    price:
+      amount: 22.49
+      currency: USD
+      interval: month
+      startingAt: true
+    quota:
+      requestsPerDay: 10000
+    features:
+      - Large IP authorizations
+      - High concurrency
+      - High network priority
+    audience: growing applications
+  - id: premium
+    name: Premium
+    price:
+      amount: 44.97
+      currency: USD
+      interval: month
+      startingAt: true
+    quota:
+      requestsPerDay: 30000
+    features:
+      - Unlimited IP authorizations
+      - Very high concurrency
+      - Very high network priority
+    audience: production applications
+    upgrades:
+      - id: premium-x2
+        requestsPerDay: 60000
+      - id: premium-x3
+        requestsPerDay: 120000
+      - id: premium-ultimate
+        requestsPerDay: 999999
+notes:
+  - All paid plans operate on non-recurring monthly billing (user re-purchases as needed).
+  - Quota is enforced per day and resets daily; remaining quota is observable via the /API/Usage endpoint.
+  - Combining Title with options (FullActor, FullCast, Posters, Images, Trailer, Ratings, Wikipedia) increases per-call quota cost (one count per option).

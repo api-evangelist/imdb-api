@@ -1,0 +1,31 @@
+apiVersion: naftiko.dev/v1alpha1
+kind: Capability
+metadata:
+  name: trending-discovery
+  description: >-
+    Discover what is currently relevant: most popular movies + TVs, what's in
+    theaters and the weekend box office, joined into a single trending feed.
+spec:
+  provider: imdb-api
+  steps:
+    - id: popularMovies
+      uses: imdb-api.getMostPopularMovies
+      output: popularMovies
+    - id: popularTVs
+      uses: imdb-api.getMostPopularTVs
+      output: popularTVs
+    - id: inTheaters
+      uses: imdb-api.getInTheaters
+      output: inTheaters
+    - id: boxOffice
+      uses: imdb-api.getBoxOffice
+      output: boxOffice
+  output:
+    movies: ${steps.popularMovies.items}
+    series: ${steps.popularTVs.items}
+    nowPlaying: ${steps.inTheaters.items}
+    boxOffice: ${steps.boxOffice.items}
+  governance:
+    quotaImpact: 4
+    readOnly: true
+    tags: [trending, what-to-watch]

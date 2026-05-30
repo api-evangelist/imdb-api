@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-05/schema",
+  "name": "Title",
+  "description": "Structural definition of an IMDb-API Title resource, capturing identifiers, descriptive metadata, contributors, classifications, commercial signals and ratings.",
+  "type": "object",
+  "fields": {
+    "id": {"type": "string", "purpose": "identifier", "pattern": "^tt\\d+$"},
+    "title": {"type": "string", "purpose": "display"},
+    "fullTitle": {"type": "string", "purpose": "display"},
+    "type": {"type": "string", "purpose": "classification"},
+    "year": {"type": "string", "purpose": "temporal"},
+    "releaseDate": {"type": "string", "purpose": "temporal"},
+    "runtimeMins": {"type": "string", "purpose": "measurement"},
+    "plot": {"type": "string", "purpose": "narrative"},
+    "directors": {"type": "string", "purpose": "contributor"},
+    "writers": {"type": "string", "purpose": "contributor"},
+    "stars": {"type": "string", "purpose": "contributor"},
+    "genres": {"type": "string", "purpose": "classification"},
+    "countries": {"type": "string", "purpose": "geography"},
+    "languages": {"type": "string", "purpose": "classification"},
+    "contentRating": {"type": "string", "purpose": "classification"},
+    "imDbRating": {"type": "string", "purpose": "rating"},
+    "metacriticRating": {"type": "string", "purpose": "rating"},
+    "image": {"type": "string", "purpose": "media"}
+  }
+}

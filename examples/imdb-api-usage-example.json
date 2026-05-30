@@ -1,0 +1,12 @@
+{
+  "operation": "getUsage",
+  "request": {
+    "method": "GET",
+    "url": "https://tv-api.com/API/Usage/{apiKey}"
+  },
+  "response": {
+    "count": 47,
+    "maximum": 100,
+    "errorMessage": ""
+  }
+}

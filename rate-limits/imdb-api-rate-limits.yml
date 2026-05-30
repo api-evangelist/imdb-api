@@ -1,0 +1,47 @@
+apiCommonsRateLimits: "0.1"
+provider: imdb-api
+providerName: IMDb-API (TV-API)
+documentationUrl: https://tv-api.com/api
+scope:
+  - perApiKey
+  - perPlan
+enforcement:
+  daily-quota:
+    description: Daily request quota; resets every 24h. Quota varies by plan.
+    metric: requests
+    window: 1d
+    perPlan:
+      free: 100
+      standard: 5000
+      plus: 10000
+      premium: 30000
+      premium-x2: 60000
+      premium-x3: 120000
+      premium-ultimate: 999999
+  concurrency:
+    description: Concurrent in-flight requests per API key; capacity scales with plan tier.
+    metric: in-flight-requests
+    perPlan:
+      free: limited
+      standard: medium
+      plus: high
+      premium: very-high
+  ipAuthorization:
+    description: Number of source IPs authorized to use the API key; higher tiers permit more IPs (Premium is effectively unlimited).
+    perPlan:
+      free: limited
+      standard: medium
+      plus: large
+      premium: unlimited
+quotaImpactPerEndpoint:
+  default: 1
+  notes:
+    - Most endpoints consume 1 quota per call.
+    - The Title endpoint can consume multiple quota when combined with options (FullActor, FullCast, Posters, Images, Trailer, Ratings, Wikipedia) — one count per requested option.
+observability:
+  usageEndpoint: /API/Usage/{apiKey}
+  responseFields:
+    count: requests consumed today
+    maximum: daily quota for current plan
+errorBehavior:
+  - When the daily quota is reached, subsequent calls return an error message indicating quota exhaustion until the next 24h window.

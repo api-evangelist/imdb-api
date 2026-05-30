@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/imdb-api/json-schema/imdb-api-name-schema.json",
+  "title": "Name",
+  "description": "An IMDb-API person (actor, director, writer) record.",
+  "type": "object",
+  "required": ["id", "name"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^nm\\d+$"},
+    "name": {"type": "string"},
+    "role": {"type": "string"},
+    "image": {"type": "string", "format": "uri"},
+    "summary": {"type": "string"},
+    "birthDate": {"type": "string"},
+    "deathDate": {"type": "string"},
+    "awards": {"type": "string"},
+    "height": {"type": "string"},
+    "knownFor": {"type": "array"},
+    "castMovies": {"type": "array"}
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/2025-05/schema",
+  "name": "Name",
+  "description": "Structural definition of an IMDb-API Person resource.",
+  "type": "object",
+  "fields": {
+    "id": {"type": "string", "purpose": "identifier", "pattern": "^nm\\d+$"},
+    "name": {"type": "string", "purpose": "display"},
+    "role": {"type": "string", "purpose": "classification"},
+    "image": {"type": "string", "purpose": "media"},
+    "summary": {"type": "string", "purpose": "narrative"},
+    "birthDate": {"type": "string", "purpose": "temporal"},
+    "deathDate": {"type": "string", "purpose": "temporal"},
+    "awards": {"type": "string", "purpose": "achievement"},
+    "height": {"type": "string", "purpose": "measurement"}
+  }
+}

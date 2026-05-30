@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/imdb-api/json-schema/imdb-api-usage-schema.json",
+  "title": "Usage",
+  "description": "Account API usage and quota consumption.",
+  "type": "object",
+  "properties": {
+    "count": {"type": "integer", "minimum": 0, "description": "Requests consumed in the current day."},
+    "maximum": {"type": "integer", "minimum": 0, "description": "Daily quota for the current plan."},
+    "errorMessage": {"type": "string"}
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "operation": "getTitle",
+  "request": {
+    "method": "GET",
+    "url": "https://tv-api.com/en/API/Title/{apiKey}/tt1375666"
+  },
+  "response": {
+    "id": "tt1375666",
+    "title": "Inception",
+    "originalTitle": "",
+    "fullTitle": "Inception (2010)",
+    "type": "Movie",
+    "year": "2010",
+    "image": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_AL_.jpg",
+    "releaseDate": "2010-07-16",
+    "runtimeMins": "148",
+    "runtimeStr": "2h 28min",
+    "plot": "A thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    "awards": "Top rated movie #14 | Won 4 Oscars. Another 152 wins & 218 nominations.",
+    "directors": "Christopher Nolan",
+    "directorList": [{"id": "nm0634240", "name": "Christopher Nolan"}],
+    "writers": "Christopher Nolan",
+    "writerList": [{"id": "nm0634240", "name": "Christopher Nolan"}],
+    "stars": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
+    "starList": [
+      {"id": "nm0000138", "name": "Leonardo DiCaprio"},
+      {"id": "nm0330687", "name": "Joseph Gordon-Levitt"},
+      {"id": "nm0680983", "name": "Elliot Page"}
+    ],
+    "genres": "Action, Adventure, Sci-Fi",
+    "companies": "Warner Bros., Legendary Entertainment, Syncopy",
+    "countries": "USA, UK",
+    "languages": "English, Japanese, French",
+    "contentRating": "PG-13",
+    "imDbRating": "8.8",
+    "imDbRatingVotes": "2206901",
+    "metacriticRating": "74",
+    "errorMessage": ""
+  }
+}
