@@ -1,14 +1,11 @@
 aid: imdb-api
 name: IMDb-API
 description: >-
-  Community web service (operated under the IMDb-API / TV-API brand) providing
-  movie, TV series and cast information in JSON. Aggregates data from IMDb,
-  TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
-  YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Operated
-  by the IMDb-API GitHub user (open source C# client library and Windows client
-  app). NOT an official IMDb / Amazon product — IMDb itself does not expose a
-  public API; community scrapers such as this one (alongside OMDb, TMDB and
-  Apify's IMDb scraper) fill the gap.
+  Community web service (operated under the IMDb-API / TV-API brand) providing movie, TV series and cast information in
+  JSON. Aggregates data from IMDb, TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
+  YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Operated by the IMDb-API GitHub user (open
+  source C# client library and Windows client app). NOT an official IMDb / Amazon product — IMDb itself does not expose
+  a public API; community scrapers such as this one (alongside OMDb, TMDB and Apify's IMDb scraper) fill the gap.
 url: https://tv-api.com/
 image: https://tv-api.com/images/original/Apple-TV-Plus-Logo.png
 humanURL: https://tv-api.com/
@@ -31,11 +28,9 @@ tags:
 apis:
   - name: IMDb-API
     description: >-
-      REST JSON web service for movie, TV series, cast, ratings, images,
-      trailers, lists and box office data. 30+ endpoints organized into Search,
-      Title, Name, Lists, External and Tools categories. API key required;
-      embedded in the request path. Originally documented at imdb-api.com and
-      now served from tv-api.com.
+      REST JSON web service for movie, TV series, cast, ratings, images, trailers, lists and box office data. 30+
+      endpoints organized into Search, Title, Name, Lists, External and Tools categories. API key required; embedded in
+      the request path. Originally documented at imdb-api.com and now served from tv-api.com.
     humanURL: https://tv-api.com/
     baseURL: https://tv-api.com/
     tags:
@@ -116,14 +111,6 @@ common:
     url: rules/imdb-api-rules.yml
   - type: Vocabulary
     url: vocabulary/imdb-api-vocabulary.yml
-  - type: NaftikoCapability
-    url: capabilities/shared/imdb-api-shared.yaml
-  - type: NaftikoCapability
-    url: capabilities/title-enrichment.yaml
-  - type: NaftikoCapability
-    url: capabilities/trending-discovery.yaml
-  - type: NaftikoCapability
-    url: capabilities/person-profile.yaml
   - type: Plans
     url: plans/imdb-api-plans-pricing.yml
   - type: RateLimits

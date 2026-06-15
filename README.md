@@ -1,76 +1,92 @@
 # IMDb-API (imdb-api)
 
-Community web service (operated under the **IMDb-API / TV-API** brand) for
-receiving movie, TV series and cast information in JSON. Aggregates IMDb,
-TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
-YouTube into a single REST API. Originally hosted at
-[imdb-api.com](https://imdb-api.com/) and migrated to
-[tv-api.com](https://tv-api.com/).
+Community web service (operated under the IMDb-API / TV-API brand) providing movie, TV series and cast information in JSON. Aggregates data from IMDb, TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Operated by the IMDb-API GitHub user (open source C# client library and Windows client app). NOT an official IMDb / Amazon product — IMDb itself does not expose a public API; community scrapers such as this one (alongside OMDb, TMDB and Apify's IMDb scraper) fill the gap.
 
-> **Not an official IMDb / Amazon product.** IMDb itself has no public REST API.
-> This profile covers the community service maintained by the
-> [IMDb-API](https://github.com/IMDb-API) GitHub user. Adjacent community options
-> include [OMDb API](https://www.omdbapi.com/), [TMDB](https://www.themoviedb.org/),
-> [imdbapi.dev](https://imdbapi.dev/), and the
-> [IMDb API on Apify](https://apify.com/api/imdb-api).
-
-**APIs.yml:** [apis.yml](apis.yml)
-
-## Type
-- **x-type:** company
-- **x-tier:** 2 (enriched with real OpenAPI + pricing)
-- **source:** [public-apis/public-apis](https://github.com/public-apis/public-apis) — category: Video
-
-## API
-- **IMDb-API** — [Documentation](https://tv-api.com/api) · [OpenAPI](openapi/imdb-api-openapi.yml)
-
-### Endpoint Categories
-- **Search** — Search, SearchMovie, SearchSeries, SearchName, SearchEpisode, SearchCompany, AdvancedSearch
-- **Title** — Title, FullCast, Posters, Images, Trailer, YouTubeTrailer, Ratings, UserRatings, SeasonEpisodes
-- **Name** — Name, NameAwards
-- **Lists** — Top250Movies, Top250TVs, MostPopularMovies, MostPopularTVs, InTheaters, ComingSoon, BoxOffice, BoxOfficeAllTime, IMDbList
-- **External** — Wikipedia, ExternalSites, Reviews, MetacriticReviews, FAQ, Company, Keyword
-- **Tools** — Usage, ResizeImage, ResizePoster
-
-## Artifacts
-
-| Type | Path |
-|---|---|
-| OpenAPI | [openapi/imdb-api-openapi.yml](openapi/imdb-api-openapi.yml) |
-| JSON Schema | [json-schema/](json-schema/) (Title, Rating, Name, SearchResult, Usage) |
-| JSON Structure | [json-structure/](json-structure/) (Title, Rating, Name) |
-| JSON-LD context | [json-ld/imdb-api-context.jsonld](json-ld/imdb-api-context.jsonld) |
-| Examples | [examples/](examples/) (search, title, ratings, fullcast, top250movies, usage) |
-| Spectral rules | [rules/imdb-api-rules.yml](rules/imdb-api-rules.yml) |
-| Vocabulary | [vocabulary/imdb-api-vocabulary.yml](vocabulary/imdb-api-vocabulary.yml) |
-| Naftiko capabilities | [capabilities/](capabilities/) — title-enrichment, trending-discovery, person-profile + shared bundle |
-| Plans & pricing | [plans/imdb-api-plans-pricing.yml](plans/imdb-api-plans-pricing.yml) |
-| Rate limits | [rate-limits/imdb-api-rate-limits.yml](rate-limits/imdb-api-rate-limits.yml) |
-| FinOps | [finops/imdb-api-finops.yml](finops/imdb-api-finops.yml) |
-
-## Pricing (summary)
-
-| Plan | Price | Daily quota |
-|---|---|---|
-| Free | $0 | 100 req/day |
-| Standard | from $11.24/mo | 5,000 req/day |
-| Plus | from $22.49/mo | 10,000 req/day |
-| Premium | from $44.97/mo | 30,000 – 999,999 req/day |
-
-All paid plans use non-recurring monthly billing. 15% discount on cryptocurrency payment. Quota is observable via the `/API/Usage/{apiKey}` endpoint.
-
-## SDK & Tools
-- **IMDbApiLib** — C# / NuGet wrapper: <https://github.com/IMDb-API/IMDbApiLib>
-- **IMDbApiClient** — Free Windows desktop client: <https://github.com/IMDb-API/IMDbApiClient>
-
-No MCP servers or Claude Code skills are published by this provider as of the last enrichment pass.
+**APIs.json:** [https://tv-api.com/](https://tv-api.com/)
 
 ## Tags
-Video, Movies, TV, Entertainment, Metadata, Ratings, Public APIs
+
+- Video
+- Movies
+- TV
+- Entertainment
+- Metadata
+- Ratings
+- Public APIs
 
 ## Timestamps
+
 - **Created:** 2026-05-28
 - **Modified:** 2026-05-30
 
+## APIs
+
+### IMDb-API
+
+REST JSON web service for movie, TV series, cast, ratings, images, trailers, lists and box office data. 30+ endpoints organized into Search, Title, Name, Lists, External and Tools categories. API key required; embedded in the request path. Originally documented at imdb-api.com and now served from tv-api.com.
+
+- **Human URL:** [https://tv-api.com/](https://tv-api.com/)
+- **Base URL:** `https://tv-api.com/`
+
+#### Tags
+
+- Video
+- Movies
+- TV
+- Metadata
+- Ratings
+
+#### Properties
+
+- [Documentation](https://tv-api.com/api)
+- [API Reference](https://tv-api.com/api)
+- [Sign Up](https://tv-api.com/Identity/Account/Register)
+- [Authentication](https://tv-api.com/api#authentication)
+- [OpenAPI](openapi/imdb-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/imdb-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/imdb-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JSON Schema](json-schema/imdb-api-title-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/imdb-api-rating-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/imdb-api-name-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/imdb-api-search-result-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Schema](json-schema/imdb-api-usage-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [JSON Structure](json-structure/imdb-api-title-structure.json)
+- [JSON Structure](json-structure/imdb-api-rating-structure.json)
+- [JSON Structure](json-structure/imdb-api-name-structure.json)
+- [J S O N- L D](json-ld/imdb-api-context.jsonld)
+- [Example](examples/imdb-api-search-example.json)
+- [Example](examples/imdb-api-title-example.json)
+- [Example](examples/imdb-api-ratings-example.json)
+- [Example](examples/imdb-api-fullcast-example.json)
+- [Example](examples/imdb-api-top250movies-example.json)
+- [Example](examples/imdb-api-usage-example.json)
+- [Rate Limits](rate-limits/imdb-api-rate-limits.yml)
+- [Plans](plans/imdb-api-plans-pricing.yml)
+
+## Common Properties
+
+- [Website](https://tv-api.com/)
+- [Legacy Website](https://imdb-api.com/)
+- [Pricing](https://tv-api.com/pricing)
+- [Sign Up](https://tv-api.com/Identity/Account/Register)
+- [GitHub Organization](https://github.com/IMDb-API)
+- [GitHub Repository](https://github.com/IMDb-API/IMDbApiLib)
+- [GitHub Repository](https://github.com/IMDb-API/IMDbApiClient)
+- [SDK](https://github.com/IMDb-API/IMDbApiLib)
+- [Client](https://github.com/IMDb-API/IMDbApiClient)
+- [Public APIs Listing](https://github.com/public-apis/public-apis)
+- [Spectral Rules](rules/imdb-api-rules.yml)
+- [Vocabulary](vocabulary/imdb-api-vocabulary.yml)
+- [Plans](plans/imdb-api-plans-pricing.yml)
+- [Rate Limits](rate-limits/imdb-api-rate-limits.yml)
+- [Fin Ops](finops/imdb-api-finops.yml)
+- [Features](undefined)
+- [Use Cases](undefined)
+- [Integrations](undefined)
+- [Solutions](undefined)
+- [Tools](undefined)
+
 ## Maintainers
-- **Kin Lane** — kin@apievangelist.com
+
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
