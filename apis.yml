@@ -44,7 +44,7 @@ apis:
         url: https://tv-api.com/api
       - type: APIReference
         url: https://tv-api.com/api
-      - type: SignUp
+      - type: Signup
         url: https://tv-api.com/Identity/Account/Register
       - type: Authentication
         url: https://tv-api.com/api#authentication
@@ -66,19 +66,19 @@ apis:
         url: json-structure/imdb-api-rating-structure.json
       - type: JSONStructure
         url: json-structure/imdb-api-name-structure.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/imdb-api-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/imdb-api-search-example.json
-      - type: Example
+      - type: Examples
         url: examples/imdb-api-title-example.json
-      - type: Example
+      - type: Examples
         url: examples/imdb-api-ratings-example.json
-      - type: Example
+      - type: Examples
         url: examples/imdb-api-fullcast-example.json
-      - type: Example
+      - type: Examples
         url: examples/imdb-api-top250movies-example.json
-      - type: Example
+      - type: Examples
         url: examples/imdb-api-usage-example.json
       - type: RateLimits
         url: rate-limits/imdb-api-rate-limits.yml
@@ -91,7 +91,7 @@ common:
     url: https://imdb-api.com/
   - type: Pricing
     url: https://tv-api.com/pricing
-  - type: SignUp
+  - type: Signup
     url: https://tv-api.com/Identity/Account/Register
   - type: GitHubOrganization
     url: https://github.com/IMDb-API
@@ -99,7 +99,7 @@ common:
     url: https://github.com/IMDb-API/IMDbApiLib
   - type: GitHubRepository
     url: https://github.com/IMDb-API/IMDbApiClient
-  - type: SDK
+  - type: SDKs
     name: IMDbApiLib (C# / NuGet)
     url: https://github.com/IMDb-API/IMDbApiLib
   - type: Client
