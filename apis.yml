@@ -85,6 +85,10 @@ apis:
       - type: Plans
         url: plans/imdb-api-plans-pricing.yml
 common:
+  - type: DomainSecurity
+    url: security/imdb-api-domain-security.yml
+  - type: Authentication
+    url: authentication/imdb-api-authentication.yml
   - type: Website
     url: https://tv-api.com/
   - type: LegacyWebsite

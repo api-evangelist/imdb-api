@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/imdb-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: ApiKeyInPath
+  type: apiKey
+  in: query
+  parameter: apiKey
+  description: API key issued at https://tv-api.com after sign-up. Embedded directly in the
+    request path for most endpoints.
+  sources:
+  - openapi/imdb-api-openapi.yml
