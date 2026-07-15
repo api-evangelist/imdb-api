@@ -85,6 +85,8 @@ apis:
       - type: Plans
         url: plans/imdb-api-plans-pricing.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/imdb-api-agentic-access.yml
   - type: DomainSecurity
     url: security/imdb-api-domain-security.yml
   - type: Authentication

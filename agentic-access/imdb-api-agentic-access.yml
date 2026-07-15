@@ -1,0 +1,384 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/imdb-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 37
+  by_action_class:
+    connected: 37
+  by_consequence:
+    read: 37
+  human_in_the_loop_required: 0
+operations:
+- path: /{lang}/API/Search/{apiKey}/{expression}
+  method: get
+  operationId: search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/SearchMovie/{apiKey}/{expression}
+  method: get
+  operationId: searchMovie
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/SearchSeries/{apiKey}/{expression}
+  method: get
+  operationId: searchSeries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/SearchName/{apiKey}/{expression}
+  method: get
+  operationId: searchName
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/SearchEpisode/{apiKey}/{expression}
+  method: get
+  operationId: searchEpisode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/SearchCompany/{apiKey}/{expression}
+  method: get
+  operationId: searchCompany
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/AdvancedSearch/{apiKey}
+  method: get
+  operationId: advancedSearch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Title/{apiKey}/{id}
+  method: get
+  operationId: getTitle
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/FullCast/{apiKey}/{id}
+  method: get
+  operationId: getFullCast
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Posters/{apiKey}/{id}
+  method: get
+  operationId: getPosters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Images/{apiKey}/{id}
+  method: get
+  operationId: getImages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Trailer/{apiKey}/{id}
+  method: get
+  operationId: getTrailer
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/YouTubeTrailer/{apiKey}/{id}
+  method: get
+  operationId: getYouTubeTrailer
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Ratings/{apiKey}/{id}
+  method: get
+  operationId: getRatings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/UserRatings/{apiKey}/{id}
+  method: get
+  operationId: getUserRatings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/SeasonEpisodes/{apiKey}/{id}/{seasonNumber}
+  method: get
+  operationId: getSeasonEpisodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Wikipedia/{apiKey}/{id}
+  method: get
+  operationId: getWikipedia
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/ExternalSites/{apiKey}/{id}
+  method: get
+  operationId: getExternalSites
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Reviews/{apiKey}/{id}
+  method: get
+  operationId: getReviews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/MetacriticReviews/{apiKey}/{id}
+  method: get
+  operationId: getMetacriticReviews
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/IMDbList/{apiKey}/{id}
+  method: get
+  operationId: getIMDbList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/FAQ/{apiKey}/{id}
+  method: get
+  operationId: getFAQ
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Name/{apiKey}/{id}
+  method: get
+  operationId: getName
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/NameAwards/{apiKey}/{id}
+  method: get
+  operationId: getNameAwards
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Company/{apiKey}/{id}
+  method: get
+  operationId: getCompany
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Keyword/{apiKey}/{id}
+  method: get
+  operationId: getKeyword
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Top250Movies/{apiKey}
+  method: get
+  operationId: getTop250Movies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/Top250TVs/{apiKey}
+  method: get
+  operationId: getTop250TVs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/MostPopularMovies/{apiKey}
+  method: get
+  operationId: getMostPopularMovies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/MostPopularTVs/{apiKey}
+  method: get
+  operationId: getMostPopularTVs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/InTheaters/{apiKey}
+  method: get
+  operationId: getInTheaters
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/ComingSoon/{apiKey}
+  method: get
+  operationId: getComingSoon
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/BoxOffice/{apiKey}
+  method: get
+  operationId: getBoxOffice
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{lang}/API/BoxOfficeAllTime/{apiKey}
+  method: get
+  operationId: getBoxOfficeAllTime
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /API/Usage/{apiKey}
+  method: get
+  operationId: getUsage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /API/ResizeImage
+  method: get
+  operationId: resizeImage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /API/ResizePoster
+  method: get
+  operationId: resizePoster
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
