@@ -1,0 +1,626 @@
+openapi: 3.1.0
+info:
+  title: IMDb-API (TV-API) External Title API
+  description: 'Community web service (operated under the IMDb-API / TV-API brand) for receiving
+
+    movie, TV series and cast information in JSON. Aggregates data from IMDb,
+
+    TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
+
+    YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an
+
+    official IMDb / Amazon product.
+
+    '
+  version: 1.0.0
+  contact:
+    name: IMDb-API
+    url: https://tv-api.com/
+  license:
+    name: Commercial / Free Tier
+    url: https://tv-api.com/pricing
+servers:
+- url: https://tv-api.com
+  description: Production (current)
+- url: https://imdb-api.com
+  description: Legacy host (redirects to tv-api.com)
+security:
+- ApiKeyInPath: []
+tags:
+- name: Title
+  description: Movie and series metadata, posters, images, trailers, cast, ratings.
+paths:
+  /{lang}/API/Title/{apiKey}/{id}:
+    get:
+      tags:
+      - Title
+      operationId: getTitle
+      summary: Get Title
+      description: Retrieve movie or series metadata by IMDb id (tt-format).
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Title data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TitleData'
+  /{lang}/API/FullCast/{apiKey}/{id}:
+    get:
+      tags:
+      - Title
+      operationId: getFullCast
+      summary: Get Full Cast And Crew
+      description: Retrieve complete cast and crew for a title.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Full cast data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FullCastData'
+  /{lang}/API/Posters/{apiKey}/{id}:
+    get:
+      tags:
+      - Title
+      operationId: getPosters
+      summary: Get Posters
+      description: Retrieve poster and backdrop images for a title.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Poster data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PosterData'
+  /{lang}/API/Images/{apiKey}/{id}:
+    get:
+      tags:
+      - Title
+      operationId: getImages
+      summary: Get Images
+      description: Retrieve a paged set of images for a title or person.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbOrNameId'
+      responses:
+        '200':
+          description: Image data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageData'
+  /{lang}/API/Trailer/{apiKey}/{id}:
+    get:
+      tags:
+      - Title
+      operationId: getTrailer
+      summary: Get Trailer
+      description: Retrieve the trailer for a title.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Trailer data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrailerData'
+  /{lang}/API/YouTubeTrailer/{apiKey}/{id}:
+    get:
+      tags:
+      - Title
+      operationId: getYouTubeTrailer
+      summary: Get YouTube Trailer
+      description: Retrieve the YouTube trailer URL for a title.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: YouTube trailer data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/YouTubeTrailerData'
+  /{lang}/API/Ratings/{apiKey}/{id}:
+    get:
+      tags:
+      - Title
+      operationId: getRatings
+      summary: Get Ratings
+      description: Retrieve ratings from IMDb, Metacritic, Rotten Tomatoes, TMDB and FilmAffinity.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Ratings data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingData'
+  /{lang}/API/UserRatings/{apiKey}/{id}:
+    get:
+      tags:
+      - Title
+      operationId: getUserRatings
+      summary: Get User Ratings
+      description: Retrieve user vote distribution for a title.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: User ratings data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRatingData'
+  /{lang}/API/SeasonEpisodes/{apiKey}/{id}/{seasonNumber}:
+    get:
+      tags:
+      - Title
+      operationId: getSeasonEpisodes
+      summary: Get Season Episodes
+      description: List episodes for a given series season.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      - name: seasonNumber
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Season episode data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SeasonEpisodeData'
+components:
+  schemas:
+    SimilarShort:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        image:
+          type: string
+          format: uri
+        imDbRating:
+          type: string
+    TrailerData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        thumbnailUrl:
+          type: string
+          format: uri
+        link:
+          type: string
+          format: uri
+        linkEmbed:
+          type: string
+          format: uri
+        errorMessage:
+          type: string
+    RatingData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        fullTitle:
+          type: string
+        type:
+          type: string
+        year:
+          type: string
+        imDb:
+          type: string
+        metacritic:
+          type: string
+        theMovieDb:
+          type: string
+        rottenTomatoes:
+          type: string
+        filmAffinity:
+          type: string
+        errorMessage:
+          type: string
+    PosterData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        posters:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              link:
+                type: string
+                format: uri
+              aspectRatio:
+                type: number
+              language:
+                type: string
+              width:
+                type: integer
+              height:
+                type: integer
+        backdrops:
+          type: array
+          items:
+            type: object
+        errorMessage:
+          type: string
+    WikipediaData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
+        language:
+          type: string
+        plotShort:
+          type: object
+          properties:
+            plainText:
+              type: string
+            html:
+              type: string
+        plotFull:
+          type: object
+          properties:
+            plainText:
+              type: string
+            html:
+              type: string
+        errorMessage:
+          type: string
+    TvSeriesInfo:
+      type: object
+      properties:
+        yearEnd:
+          type: string
+        creators:
+          type: string
+        creatorList:
+          type: array
+          items:
+            $ref: '#/components/schemas/StarShort'
+        seasons:
+          type: array
+          items:
+            type: string
+    FullCastData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        directors:
+          type: object
+        writers:
+          type: object
+        actors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActorShort'
+        others:
+          type: array
+        errorMessage:
+          type: string
+    YouTubeTrailerData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        videoId:
+          type: string
+        videoUrl:
+          type: string
+          format: uri
+        videoTitle:
+          type: string
+        errorMessage:
+          type: string
+    ImageData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              image:
+                type: string
+                format: uri
+        errorMessage:
+          type: string
+    TitleData:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        originalTitle:
+          type: string
+        fullTitle:
+          type: string
+        type:
+          type: string
+        year:
+          type: string
+        image:
+          type: string
+          format: uri
+        releaseDate:
+          type: string
+        runtimeMins:
+          type: string
+        runtimeStr:
+          type: string
+        plot:
+          type: string
+        plotLocal:
+          type: string
+        awards:
+          type: string
+        directors:
+          type: string
+        directorList:
+          type: array
+          items:
+            $ref: '#/components/schemas/StarShort'
+        writers:
+          type: string
+        writerList:
+          type: array
+          items:
+            $ref: '#/components/schemas/StarShort'
+        stars:
+          type: string
+        starList:
+          type: array
+          items:
+            $ref: '#/components/schemas/StarShort'
+        actorList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActorShort'
+        genres:
+          type: string
+        companies:
+          type: string
+        countries:
+          type: string
+        languages:
+          type: string
+        contentRating:
+          type: string
+        imDbRating:
+          type: string
+        imDbRatingVotes:
+          type: string
+        metacriticRating:
+          type: string
+        ratings:
+          $ref: '#/components/schemas/RatingData'
+        wikipedia:
+          $ref: '#/components/schemas/WikipediaData'
+        posters:
+          $ref: '#/components/schemas/PosterData'
+        images:
+          $ref: '#/components/schemas/ImageData'
+        trailer:
+          $ref: '#/components/schemas/TrailerData'
+        boxOffice:
+          $ref: '#/components/schemas/BoxOfficeShort'
+        tagline:
+          type: string
+        keywords:
+          type: string
+        keywordList:
+          type: array
+          items:
+            type: string
+        similars:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimilarShort'
+        tvSeriesInfo:
+          $ref: '#/components/schemas/TvSeriesInfo'
+        tvEpisodeInfo:
+          $ref: '#/components/schemas/TvEpisodeInfo'
+        errorMessage:
+          type: string
+    BoxOfficeShort:
+      type: object
+      properties:
+        budget:
+          type: string
+        openingWeekendUSA:
+          type: string
+        grossUSA:
+          type: string
+        cumulativeWorldwideGross:
+          type: string
+    SeasonEpisodeData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        episodes:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              seasonNumber:
+                type: string
+              episodeNumber:
+                type: string
+              title:
+                type: string
+              image:
+                type: string
+                format: uri
+              year:
+                type: string
+              released:
+                type: string
+              plot:
+                type: string
+              imDbRating:
+                type: string
+        errorMessage:
+          type: string
+    ActorShort:
+      type: object
+      properties:
+        id:
+          type: string
+        image:
+          type: string
+          format: uri
+        name:
+          type: string
+        asCharacter:
+          type: string
+    UserRatingData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        totalRating:
+          type: string
+        totalRatingVotes:
+          type: string
+        ratings:
+          type: array
+          items:
+            type: object
+            properties:
+              rating:
+                type: string
+              percent:
+                type: string
+              votes:
+                type: string
+        errorMessage:
+          type: string
+    TvEpisodeInfo:
+      type: object
+      properties:
+        seriesId:
+          type: string
+        seriesTitle:
+          type: string
+        seriesFullTitle:
+          type: string
+        seriesYear:
+          type: string
+        seasonNumber:
+          type: string
+        episodeNumber:
+          type: string
+        previousEpisodeId:
+          type: string
+        nextEpisodeId:
+          type: string
+    StarShort:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+  parameters:
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
+    ImdbOrNameId:
+      name: id
+      in: path
+      required: true
+      description: IMDb title (tt-format) or name (nm-format) id.
+      schema:
+        type: string
+        pattern: ^(tt|nm)\\d+$
+    Lang:
+      name: lang
+      in: path
+      required: true
+      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
+      schema:
+        type: string
+        default: en
+    ImdbId:
+      name: id
+      in: path
+      required: true
+      description: IMDb title id in tt-format (e.g. tt1375666).
+      schema:
+        type: string
+        pattern: ^tt\\d+$
+  securitySchemes:
+    ApiKeyInPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: API key issued at https://tv-api.com after sign-up. Embedded directly in the request path for most endpoints.

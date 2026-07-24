@@ -1,0 +1,364 @@
+openapi: 3.1.0
+info:
+  title: IMDb-API (TV-API) External API
+  description: 'Community web service (operated under the IMDb-API / TV-API brand) for receiving
+
+    movie, TV series and cast information in JSON. Aggregates data from IMDb,
+
+    TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
+
+    YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an
+
+    official IMDb / Amazon product.
+
+    '
+  version: 1.0.0
+  contact:
+    name: IMDb-API
+    url: https://tv-api.com/
+  license:
+    name: Commercial / Free Tier
+    url: https://tv-api.com/pricing
+servers:
+- url: https://tv-api.com
+  description: Production (current)
+- url: https://imdb-api.com
+  description: Legacy host (redirects to tv-api.com)
+security:
+- ApiKeyInPath: []
+tags:
+- name: External
+  description: Wikipedia, external sites, reviews, FAQ and other ancillary data.
+paths:
+  /{lang}/API/Wikipedia/{apiKey}/{id}:
+    get:
+      tags:
+      - External
+      operationId: getWikipedia
+      summary: Get Wikipedia Plot
+      description: Retrieve Wikipedia plot summary (PlainText and Html).
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Wikipedia data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WikipediaData'
+  /{lang}/API/ExternalSites/{apiKey}/{id}:
+    get:
+      tags:
+      - External
+      operationId: getExternalSites
+      summary: Get External Sites
+      description: Retrieve cross-platform identifiers and URLs for a title.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: External site data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalSiteData'
+  /{lang}/API/Reviews/{apiKey}/{id}:
+    get:
+      tags:
+      - External
+      operationId: getReviews
+      summary: Get User Reviews
+      description: Retrieve user reviews for a title.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Review data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewData'
+  /{lang}/API/MetacriticReviews/{apiKey}/{id}:
+    get:
+      tags:
+      - External
+      operationId: getMetacriticReviews
+      summary: Get Metacritic Reviews
+      description: Retrieve Metacritic critic reviews for a title.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Metacritic review data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetacriticReviewData'
+  /{lang}/API/FAQ/{apiKey}/{id}:
+    get:
+      tags:
+      - External
+      operationId: getFAQ
+      summary: Get FAQ
+      description: Retrieve frequently asked questions for a title.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: FAQ data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FAQData'
+  /{lang}/API/Company/{apiKey}/{id}:
+    get:
+      tags:
+      - External
+      operationId: getCompany
+      summary: Get Company
+      description: Retrieve production company information and titles by IMDb company id (co-format).
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^co\\d+$
+      responses:
+        '200':
+          description: Company data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyData'
+  /{lang}/API/Keyword/{apiKey}/{id}:
+    get:
+      tags:
+      - External
+      operationId: getKeyword
+      summary: Get Keyword
+      description: Retrieve titles related to a keyword.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Keyword data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordData'
+components:
+  schemas:
+    KeywordData:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
+          type: string
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        resultType:
+          type: string
+        image:
+          type: string
+          format: uri
+        title:
+          type: string
+        description:
+          type: string
+    MetacriticReviewData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              username:
+                type: string
+              date:
+                type: string
+              rate:
+                type: string
+              title:
+                type: string
+              content:
+                type: string
+        errorMessage:
+          type: string
+    ExternalSiteData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              url:
+                type: string
+                format: uri
+        errorMessage:
+          type: string
+    ReviewData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              username:
+                type: string
+              userUrl:
+                type: string
+                format: uri
+              reviewLink:
+                type: string
+                format: uri
+              warningSpoilers:
+                type: boolean
+              date:
+                type: string
+              rate:
+                type: string
+              helpful:
+                type: string
+              title:
+                type: string
+              content:
+                type: string
+        errorMessage:
+          type: string
+    WikipediaData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
+        language:
+          type: string
+        plotShort:
+          type: object
+          properties:
+            plainText:
+              type: string
+            html:
+              type: string
+        plotFull:
+          type: object
+          properties:
+            plainText:
+              type: string
+            html:
+              type: string
+        errorMessage:
+          type: string
+    CompanyData:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
+          type: string
+    FAQData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              question:
+                type: string
+              answer:
+                type: string
+        errorMessage:
+          type: string
+  parameters:
+    Lang:
+      name: lang
+      in: path
+      required: true
+      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
+      schema:
+        type: string
+        default: en
+    ImdbId:
+      name: id
+      in: path
+      required: true
+      description: IMDb title id in tt-format (e.g. tt1375666).
+      schema:
+        type: string
+        pattern: ^tt\\d+$
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
+  securitySchemes:
+    ApiKeyInPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: API key issued at https://tv-api.com after sign-up. Embedded directly in the request path for most endpoints.

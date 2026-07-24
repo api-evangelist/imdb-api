@@ -1,0 +1,388 @@
+openapi: 3.1.0
+info:
+  title: IMDb-API (TV-API) External Lists API
+  description: 'Community web service (operated under the IMDb-API / TV-API brand) for receiving
+
+    movie, TV series and cast information in JSON. Aggregates data from IMDb,
+
+    TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
+
+    YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an
+
+    official IMDb / Amazon product.
+
+    '
+  version: 1.0.0
+  contact:
+    name: IMDb-API
+    url: https://tv-api.com/
+  license:
+    name: Commercial / Free Tier
+    url: https://tv-api.com/pricing
+servers:
+- url: https://tv-api.com
+  description: Production (current)
+- url: https://imdb-api.com
+  description: Legacy host (redirects to tv-api.com)
+security:
+- ApiKeyInPath: []
+tags:
+- name: Lists
+  description: Curated and aggregated lists (Top 250, Most Popular, In Theaters, Coming Soon, Box Office).
+paths:
+  /{lang}/API/IMDbList/{apiKey}/{id}:
+    get:
+      tags:
+      - Lists
+      operationId: getIMDbList
+      summary: Get IMDb User List
+      description: Retrieve a curated IMDb user list (ls-format id).
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^ls\\d+$
+      responses:
+        '200':
+          description: IMDb list data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IMDbListData'
+  /{lang}/API/Top250Movies/{apiKey}:
+    get:
+      tags:
+      - Lists
+      operationId: getTop250Movies
+      summary: Get Top 250 Movies
+      description: Retrieve IMDb's Top 250 movies list.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Top 250 movies.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Top250Data'
+  /{lang}/API/Top250TVs/{apiKey}:
+    get:
+      tags:
+      - Lists
+      operationId: getTop250TVs
+      summary: Get Top 250 TV Series
+      description: Retrieve IMDb's Top 250 TV series list.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Top 250 TV series.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Top250Data'
+  /{lang}/API/MostPopularMovies/{apiKey}:
+    get:
+      tags:
+      - Lists
+      operationId: getMostPopularMovies
+      summary: Get Most Popular Movies
+      description: Retrieve currently most popular movies.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Most popular movies.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MostPopularData'
+  /{lang}/API/MostPopularTVs/{apiKey}:
+    get:
+      tags:
+      - Lists
+      operationId: getMostPopularTVs
+      summary: Get Most Popular TV Series
+      description: Retrieve currently most popular TV series.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Most popular TV series.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MostPopularData'
+  /{lang}/API/InTheaters/{apiKey}:
+    get:
+      tags:
+      - Lists
+      operationId: getInTheaters
+      summary: Get Movies In Theaters
+      description: Retrieve movies currently in theaters.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: In-theater movies.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewMovieData'
+  /{lang}/API/ComingSoon/{apiKey}:
+    get:
+      tags:
+      - Lists
+      operationId: getComingSoon
+      summary: Get Coming Soon Movies
+      description: Retrieve upcoming movie releases.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Coming soon movies.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewMovieData'
+  /{lang}/API/BoxOffice/{apiKey}:
+    get:
+      tags:
+      - Lists
+      operationId: getBoxOffice
+      summary: Get Weekend Box Office
+      description: Retrieve the latest weekend box office results.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Weekend box office.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoxOfficeWeekendData'
+  /{lang}/API/BoxOfficeAllTime/{apiKey}:
+    get:
+      tags:
+      - Lists
+      operationId: getBoxOfficeAllTime
+      summary: Get All-Time Box Office
+      description: Retrieve the all-time box office leaders.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: All-time box office.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BoxOfficeAllTimeData'
+components:
+  schemas:
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        resultType:
+          type: string
+        image:
+          type: string
+          format: uri
+        title:
+          type: string
+        description:
+          type: string
+    Top250Data:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              title:
+                type: string
+              fullTitle:
+                type: string
+              year:
+                type: string
+              image:
+                type: string
+                format: uri
+              crew:
+                type: string
+              imDbRating:
+                type: string
+              imDbRatingCount:
+                type: string
+        errorMessage:
+          type: string
+    BoxOfficeAllTimeData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              title:
+                type: string
+              worldwideLifetimeGross:
+                type: string
+              domesticLifetimeGross:
+                type: string
+              foreignLifetimeGross:
+                type: string
+              year:
+                type: string
+        errorMessage:
+          type: string
+    NewMovieData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              image:
+                type: string
+                format: uri
+              releaseState:
+                type: string
+              runtimeMins:
+                type: string
+              runtimeStr:
+                type: string
+              plot:
+                type: string
+              contentRating:
+                type: string
+              imDbRating:
+                type: string
+              genres:
+                type: string
+              stars:
+                type: string
+        errorMessage:
+          type: string
+    IMDbListData:
+      type: object
+      properties:
+        listId:
+          type: string
+        title:
+          type: string
+        listType:
+          type: string
+        author:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
+          type: string
+    MostPopularData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              rankUpDown:
+                type: string
+              title:
+                type: string
+              fullTitle:
+                type: string
+              year:
+                type: string
+              image:
+                type: string
+                format: uri
+              crew:
+                type: string
+              imDbRating:
+                type: string
+              imDbRatingCount:
+                type: string
+        errorMessage:
+          type: string
+    BoxOfficeWeekendData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              title:
+                type: string
+              weekend:
+                type: string
+              gross:
+                type: string
+              weeks:
+                type: string
+              image:
+                type: string
+                format: uri
+        errorMessage:
+          type: string
+  parameters:
+    Lang:
+      name: lang
+      in: path
+      required: true
+      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
+      schema:
+        type: string
+        default: en
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
+  securitySchemes:
+    ApiKeyInPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: API key issued at https://tv-api.com after sign-up. Embedded directly in the request path for most endpoints.

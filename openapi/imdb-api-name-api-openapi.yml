@@ -1,0 +1,166 @@
+openapi: 3.1.0
+info:
+  title: IMDb-API (TV-API) External Name API
+  description: 'Community web service (operated under the IMDb-API / TV-API brand) for receiving
+
+    movie, TV series and cast information in JSON. Aggregates data from IMDb,
+
+    TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
+
+    YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an
+
+    official IMDb / Amazon product.
+
+    '
+  version: 1.0.0
+  contact:
+    name: IMDb-API
+    url: https://tv-api.com/
+  license:
+    name: Commercial / Free Tier
+    url: https://tv-api.com/pricing
+servers:
+- url: https://tv-api.com
+  description: Production (current)
+- url: https://imdb-api.com
+  description: Legacy host (redirects to tv-api.com)
+security:
+- ApiKeyInPath: []
+tags:
+- name: Name
+  description: People (actors, directors, writers) information and awards.
+paths:
+  /{lang}/API/Name/{apiKey}/{id}:
+    get:
+      tags:
+      - Name
+      operationId: getName
+      summary: Get Person
+      description: Retrieve actor, director or writer information by IMDb name id (nm-format).
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^nm\\d+$
+      responses:
+        '200':
+          description: Name data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NameData'
+  /{lang}/API/NameAwards/{apiKey}/{id}:
+    get:
+      tags:
+      - Name
+      operationId: getNameAwards
+      summary: Get Person Awards
+      description: Retrieve awards for a person by IMDb name id.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^nm\\d+$
+      responses:
+        '200':
+          description: Name award data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NameAwardData'
+components:
+  parameters:
+    Lang:
+      name: lang
+      in: path
+      required: true
+      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
+      schema:
+        type: string
+        default: en
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
+  schemas:
+    SimilarShort:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        image:
+          type: string
+          format: uri
+        imDbRating:
+          type: string
+    NameAwardData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              eventName:
+                type: string
+              eventYear:
+                type: string
+              awards:
+                type: array
+        errorMessage:
+          type: string
+    NameData:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+        image:
+          type: string
+          format: uri
+        summary:
+          type: string
+        birthDate:
+          type: string
+        deathDate:
+          type: string
+        awards:
+          type: string
+        height:
+          type: string
+        knownFor:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimilarShort'
+        castMovies:
+          type: array
+          items:
+            type: object
+        errorMessage:
+          type: string
+  securitySchemes:
+    ApiKeyInPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: API key issued at https://tv-api.com after sign-up. Embedded directly in the request path for most endpoints.

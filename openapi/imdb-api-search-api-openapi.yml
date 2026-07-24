@@ -1,0 +1,248 @@
+openapi: 3.1.0
+info:
+  title: IMDb-API (TV-API) External Search API
+  description: 'Community web service (operated under the IMDb-API / TV-API brand) for receiving
+
+    movie, TV series and cast information in JSON. Aggregates data from IMDb,
+
+    TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
+
+    YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an
+
+    official IMDb / Amazon product.
+
+    '
+  version: 1.0.0
+  contact:
+    name: IMDb-API
+    url: https://tv-api.com/
+  license:
+    name: Commercial / Free Tier
+    url: https://tv-api.com/pricing
+servers:
+- url: https://tv-api.com
+  description: Production (current)
+- url: https://imdb-api.com
+  description: Legacy host (redirects to tv-api.com)
+security:
+- ApiKeyInPath: []
+tags:
+- name: Search
+  description: Free-text and faceted search across titles, names, companies and keywords.
+paths:
+  /{lang}/API/Search/{apiKey}/{expression}:
+    get:
+      tags:
+      - Search
+      operationId: search
+      summary: Search Titles, Names And Companies
+      description: Full search across titles, names, episodes, companies and keywords.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchData'
+  /{lang}/API/SearchMovie/{apiKey}/{expression}:
+    get:
+      tags:
+      - Search
+      operationId: searchMovie
+      summary: Search Movies
+      description: Search constrained to movies.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Movie search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchData'
+  /{lang}/API/SearchSeries/{apiKey}/{expression}:
+    get:
+      tags:
+      - Search
+      operationId: searchSeries
+      summary: Search TV Series
+      description: Search constrained to TV series.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Series search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchData'
+  /{lang}/API/SearchName/{apiKey}/{expression}:
+    get:
+      tags:
+      - Search
+      operationId: searchName
+      summary: Search People
+      description: Search across actors, directors and writers.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Person search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchData'
+  /{lang}/API/SearchEpisode/{apiKey}/{expression}:
+    get:
+      tags:
+      - Search
+      operationId: searchEpisode
+      summary: Search Episodes
+      description: Search constrained to TV episodes.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Episode search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchData'
+  /{lang}/API/SearchCompany/{apiKey}/{expression}:
+    get:
+      tags:
+      - Search
+      operationId: searchCompany
+      summary: Search Companies
+      description: Search constrained to production companies and studios.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Company search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchData'
+  /{lang}/API/AdvancedSearch/{apiKey}:
+    get:
+      tags:
+      - Search
+      operationId: advancedSearch
+      summary: Advanced Search
+      description: Faceted search supporting title, genre, type, votes, runtime and sort filters.
+      parameters:
+      - $ref: '#/components/parameters/Lang'
+      - $ref: '#/components/parameters/ApiKey'
+      - name: title
+        in: query
+        schema:
+          type: string
+      - name: genres
+        in: query
+        schema:
+          type: string
+      - name: title_type
+        in: query
+        schema:
+          type: string
+      - name: num_votes
+        in: query
+        schema:
+          type: string
+      - name: runtime
+        in: query
+        schema:
+          type: string
+      - name: sort
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Advanced search results.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdvancedSearchData'
+components:
+  schemas:
+    AdvancedSearchData:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
+          type: string
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        resultType:
+          type: string
+        image:
+          type: string
+          format: uri
+        title:
+          type: string
+        description:
+          type: string
+    SearchData:
+      type: object
+      properties:
+        searchType:
+          type: string
+        expression:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
+          type: string
+  parameters:
+    Lang:
+      name: lang
+      in: path
+      required: true
+      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
+      schema:
+        type: string
+        default: en
+    Expression:
+      name: expression
+      in: path
+      required: true
+      description: URL-encoded search expression.
+      schema:
+        type: string
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
+  securitySchemes:
+    ApiKeyInPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: API key issued at https://tv-api.com after sign-up. Embedded directly in the request path for most endpoints.
