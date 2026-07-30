@@ -7,6 +7,19 @@ description: >-
   source C# client library and Windows client app). NOT an official IMDb / Amazon product — IMDb itself does not expose
   a public API; community scrapers such as this one (alongside OMDb, TMDB and Apify's IMDb scraper) fill the gap.
 url: https://tv-api.com/
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://tv-api.com/images/original/Apple-TV-Plus-Logo.png
 humanURL: https://tv-api.com/
 baseURL: https://tv-api.com/
@@ -26,64 +39,319 @@ tags:
   - Ratings
   - Public APIs
 apis:
-  - name: IMDb-API
-    description: >-
-      REST JSON web service for movie, TV series, cast, ratings, images, trailers, lists and box office data. 30+
-      endpoints organized into Search, Title, Name, Lists, External and Tools categories. API key required; embedded in
-      the request path. Originally documented at imdb-api.com and now served from tv-api.com.
-    humanURL: https://tv-api.com/
-    baseURL: https://tv-api.com/
-    tags:
-      - Video
-      - Movies
-      - TV
-      - Metadata
-      - Ratings
-    properties:
-      - type: Documentation
-        url: https://tv-api.com/api
-      - type: APIReference
-        url: https://tv-api.com/api
-      - type: Signup
-        url: https://tv-api.com/Identity/Account/Register
-      - type: Authentication
-        url: https://tv-api.com/api#authentication
-      - type: OpenAPI
-        url: openapi/imdb-api-openapi.yml
-      - type: JSONSchema
-        url: json-schema/imdb-api-title-schema.json
-      - type: JSONSchema
-        url: json-schema/imdb-api-rating-schema.json
-      - type: JSONSchema
-        url: json-schema/imdb-api-name-schema.json
-      - type: JSONSchema
-        url: json-schema/imdb-api-search-result-schema.json
-      - type: JSONSchema
-        url: json-schema/imdb-api-usage-schema.json
-      - type: JSONStructure
-        url: json-structure/imdb-api-title-structure.json
-      - type: JSONStructure
-        url: json-structure/imdb-api-rating-structure.json
-      - type: JSONStructure
-        url: json-structure/imdb-api-name-structure.json
-      - type: JSONLD
-        url: json-ld/imdb-api-context.jsonld
-      - type: Examples
-        url: examples/imdb-api-search-example.json
-      - type: Examples
-        url: examples/imdb-api-title-example.json
-      - type: Examples
-        url: examples/imdb-api-ratings-example.json
-      - type: Examples
-        url: examples/imdb-api-fullcast-example.json
-      - type: Examples
-        url: examples/imdb-api-top250movies-example.json
-      - type: Examples
-        url: examples/imdb-api-usage-example.json
-      - type: RateLimits
-        url: rate-limits/imdb-api-rate-limits.yml
-      - type: Plans
-        url: plans/imdb-api-plans-pricing.yml
+- aid: imdb-api:imdb-api-external-api
+  name: IMDb-API External API
+  description: Wikipedia, external sites, reviews, FAQ and other ancillary data.
+  humanURL: https://tv-api.com/
+  baseURL: https://tv-api.com/
+  tags:
+  - External
+  properties:
+  - type: OpenAPI
+    url: openapi/imdb-api-external-api-openapi.yml
+  - type: Documentation
+    url: https://tv-api.com/api
+  - type: APIReference
+    url: https://tv-api.com/api
+  - type: Signup
+    url: https://tv-api.com/Identity/Account/Register
+  - type: Authentication
+    url: https://tv-api.com/api#authentication
+  - type: JSONSchema
+    url: json-schema/imdb-api-title-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-name-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-usage-schema.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-title-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-rating-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-name-structure.json
+  - type: JSONLD
+    url: json-ld/imdb-api-context.jsonld
+  - type: Examples
+    url: examples/imdb-api-search-example.json
+  - type: Examples
+    url: examples/imdb-api-title-example.json
+  - type: Examples
+    url: examples/imdb-api-ratings-example.json
+  - type: Examples
+    url: examples/imdb-api-fullcast-example.json
+  - type: Examples
+    url: examples/imdb-api-top250movies-example.json
+  - type: Examples
+    url: examples/imdb-api-usage-example.json
+  - type: RateLimits
+    url: rate-limits/imdb-api-rate-limits.yml
+  - type: Plans
+    url: plans/imdb-api-plans-pricing.yml
+- aid: imdb-api:imdb-api-lists-api
+  name: IMDb-API Lists API
+  description: >-
+    Curated and aggregated lists (Top 250, Most Popular, In Theaters, Coming Soon, Box Office).
+  humanURL: https://tv-api.com/
+  baseURL: https://tv-api.com/
+  tags:
+  - Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/imdb-api-lists-api-openapi.yml
+  - type: Documentation
+    url: https://tv-api.com/api
+  - type: APIReference
+    url: https://tv-api.com/api
+  - type: Signup
+    url: https://tv-api.com/Identity/Account/Register
+  - type: Authentication
+    url: https://tv-api.com/api#authentication
+  - type: JSONSchema
+    url: json-schema/imdb-api-title-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-name-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-usage-schema.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-title-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-rating-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-name-structure.json
+  - type: JSONLD
+    url: json-ld/imdb-api-context.jsonld
+  - type: Examples
+    url: examples/imdb-api-search-example.json
+  - type: Examples
+    url: examples/imdb-api-title-example.json
+  - type: Examples
+    url: examples/imdb-api-ratings-example.json
+  - type: Examples
+    url: examples/imdb-api-fullcast-example.json
+  - type: Examples
+    url: examples/imdb-api-top250movies-example.json
+  - type: Examples
+    url: examples/imdb-api-usage-example.json
+  - type: RateLimits
+    url: rate-limits/imdb-api-rate-limits.yml
+  - type: Plans
+    url: plans/imdb-api-plans-pricing.yml
+- aid: imdb-api:imdb-api-name-api
+  name: IMDb-API Name API
+  description: People (actors, directors, writers) information and awards.
+  humanURL: https://tv-api.com/
+  baseURL: https://tv-api.com/
+  tags:
+  - Name
+  properties:
+  - type: OpenAPI
+    url: openapi/imdb-api-name-api-openapi.yml
+  - type: Documentation
+    url: https://tv-api.com/api
+  - type: APIReference
+    url: https://tv-api.com/api
+  - type: Signup
+    url: https://tv-api.com/Identity/Account/Register
+  - type: Authentication
+    url: https://tv-api.com/api#authentication
+  - type: JSONSchema
+    url: json-schema/imdb-api-title-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-name-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-usage-schema.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-title-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-rating-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-name-structure.json
+  - type: JSONLD
+    url: json-ld/imdb-api-context.jsonld
+  - type: Examples
+    url: examples/imdb-api-search-example.json
+  - type: Examples
+    url: examples/imdb-api-title-example.json
+  - type: Examples
+    url: examples/imdb-api-ratings-example.json
+  - type: Examples
+    url: examples/imdb-api-fullcast-example.json
+  - type: Examples
+    url: examples/imdb-api-top250movies-example.json
+  - type: Examples
+    url: examples/imdb-api-usage-example.json
+  - type: RateLimits
+    url: rate-limits/imdb-api-rate-limits.yml
+  - type: Plans
+    url: plans/imdb-api-plans-pricing.yml
+- aid: imdb-api:imdb-api-search-api
+  name: IMDb-API Search API
+  description: Free-text and faceted search across titles, names, companies and keywords.
+  humanURL: https://tv-api.com/
+  baseURL: https://tv-api.com/
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/imdb-api-search-api-openapi.yml
+  - type: Documentation
+    url: https://tv-api.com/api
+  - type: APIReference
+    url: https://tv-api.com/api
+  - type: Signup
+    url: https://tv-api.com/Identity/Account/Register
+  - type: Authentication
+    url: https://tv-api.com/api#authentication
+  - type: JSONSchema
+    url: json-schema/imdb-api-title-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-name-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-usage-schema.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-title-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-rating-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-name-structure.json
+  - type: JSONLD
+    url: json-ld/imdb-api-context.jsonld
+  - type: Examples
+    url: examples/imdb-api-search-example.json
+  - type: Examples
+    url: examples/imdb-api-title-example.json
+  - type: Examples
+    url: examples/imdb-api-ratings-example.json
+  - type: Examples
+    url: examples/imdb-api-fullcast-example.json
+  - type: Examples
+    url: examples/imdb-api-top250movies-example.json
+  - type: Examples
+    url: examples/imdb-api-usage-example.json
+  - type: RateLimits
+    url: rate-limits/imdb-api-rate-limits.yml
+  - type: Plans
+    url: plans/imdb-api-plans-pricing.yml
+- aid: imdb-api:imdb-api-title-api
+  name: IMDb-API Title API
+  description: Movie and series metadata, posters, images, trailers, cast, ratings.
+  humanURL: https://tv-api.com/
+  baseURL: https://tv-api.com/
+  tags:
+  - Title
+  properties:
+  - type: OpenAPI
+    url: openapi/imdb-api-title-api-openapi.yml
+  - type: Documentation
+    url: https://tv-api.com/api
+  - type: APIReference
+    url: https://tv-api.com/api
+  - type: Signup
+    url: https://tv-api.com/Identity/Account/Register
+  - type: Authentication
+    url: https://tv-api.com/api#authentication
+  - type: JSONSchema
+    url: json-schema/imdb-api-title-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-name-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-usage-schema.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-title-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-rating-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-name-structure.json
+  - type: JSONLD
+    url: json-ld/imdb-api-context.jsonld
+  - type: Examples
+    url: examples/imdb-api-search-example.json
+  - type: Examples
+    url: examples/imdb-api-title-example.json
+  - type: Examples
+    url: examples/imdb-api-ratings-example.json
+  - type: Examples
+    url: examples/imdb-api-fullcast-example.json
+  - type: Examples
+    url: examples/imdb-api-top250movies-example.json
+  - type: Examples
+    url: examples/imdb-api-usage-example.json
+  - type: RateLimits
+    url: rate-limits/imdb-api-rate-limits.yml
+  - type: Plans
+    url: plans/imdb-api-plans-pricing.yml
+- aid: imdb-api:imdb-api-tools-api
+  name: IMDb-API Tools API
+  description: Image utilities and account usage.
+  humanURL: https://tv-api.com/
+  baseURL: https://tv-api.com/
+  tags:
+  - Tools
+  properties:
+  - type: OpenAPI
+    url: openapi/imdb-api-tools-api-openapi.yml
+  - type: Documentation
+    url: https://tv-api.com/api
+  - type: APIReference
+    url: https://tv-api.com/api
+  - type: Signup
+    url: https://tv-api.com/Identity/Account/Register
+  - type: Authentication
+    url: https://tv-api.com/api#authentication
+  - type: JSONSchema
+    url: json-schema/imdb-api-title-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-rating-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-name-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/imdb-api-usage-schema.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-title-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-rating-structure.json
+  - type: JSONStructure
+    url: json-structure/imdb-api-name-structure.json
+  - type: JSONLD
+    url: json-ld/imdb-api-context.jsonld
+  - type: Examples
+    url: examples/imdb-api-search-example.json
+  - type: Examples
+    url: examples/imdb-api-title-example.json
+  - type: Examples
+    url: examples/imdb-api-ratings-example.json
+  - type: Examples
+    url: examples/imdb-api-fullcast-example.json
+  - type: Examples
+    url: examples/imdb-api-top250movies-example.json
+  - type: Examples
+    url: examples/imdb-api-usage-example.json
+  - type: RateLimits
+    url: rate-limits/imdb-api-rate-limits.yml
+  - type: Plans
+    url: plans/imdb-api-plans-pricing.yml
 common:
   - type: AgenticAccess
     url: agentic-access/imdb-api-agentic-access.yml
