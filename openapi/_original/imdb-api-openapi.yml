@@ -1,0 +1,1143 @@
+openapi: 3.1.0
+info:
+  title: IMDb-API (TV-API)
+  description: |
+    Community web service (operated under the IMDb-API / TV-API brand) for receiving
+    movie, TV series and cast information in JSON. Aggregates data from IMDb,
+    TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and
+    YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an
+    official IMDb / Amazon product.
+  version: "1.0.0"
+  contact:
+    name: IMDb-API
+    url: https://tv-api.com/
+  license:
+    name: Commercial / Free Tier
+    url: https://tv-api.com/pricing
+servers:
+  - url: https://tv-api.com
+    description: Production (current)
+  - url: https://imdb-api.com
+    description: Legacy host (redirects to tv-api.com)
+security:
+  - ApiKeyInPath: []
+tags:
+  - name: Search
+    description: Free-text and faceted search across titles, names, companies and keywords.
+  - name: Title
+    description: Movie and series metadata, posters, images, trailers, cast, ratings.
+  - name: Name
+    description: People (actors, directors, writers) information and awards.
+  - name: Lists
+    description: Curated and aggregated lists (Top 250, Most Popular, In Theaters, Coming Soon, Box Office).
+  - name: External
+    description: Wikipedia, external sites, reviews, FAQ and other ancillary data.
+  - name: Tools
+    description: Image utilities and account usage.
+paths:
+  /{lang}/API/Search/{apiKey}/{expression}:
+    get:
+      tags: [Search]
+      operationId: search
+      summary: Search Titles, Names And Companies
+      description: Full search across titles, names, episodes, companies and keywords.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Search results.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SearchData' }
+  /{lang}/API/SearchMovie/{apiKey}/{expression}:
+    get:
+      tags: [Search]
+      operationId: searchMovie
+      summary: Search Movies
+      description: Search constrained to movies.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Movie search results.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SearchData' }
+  /{lang}/API/SearchSeries/{apiKey}/{expression}:
+    get:
+      tags: [Search]
+      operationId: searchSeries
+      summary: Search TV Series
+      description: Search constrained to TV series.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Series search results.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SearchData' }
+  /{lang}/API/SearchName/{apiKey}/{expression}:
+    get:
+      tags: [Search]
+      operationId: searchName
+      summary: Search People
+      description: Search across actors, directors and writers.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Person search results.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SearchData' }
+  /{lang}/API/SearchEpisode/{apiKey}/{expression}:
+    get:
+      tags: [Search]
+      operationId: searchEpisode
+      summary: Search Episodes
+      description: Search constrained to TV episodes.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Episode search results.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SearchData' }
+  /{lang}/API/SearchCompany/{apiKey}/{expression}:
+    get:
+      tags: [Search]
+      operationId: searchCompany
+      summary: Search Companies
+      description: Search constrained to production companies and studios.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/Expression'
+      responses:
+        '200':
+          description: Company search results.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SearchData' }
+  /{lang}/API/AdvancedSearch/{apiKey}:
+    get:
+      tags: [Search]
+      operationId: advancedSearch
+      summary: Advanced Search
+      description: Faceted search supporting title, genre, type, votes, runtime and sort filters.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - { name: title, in: query, schema: { type: string } }
+        - { name: genres, in: query, schema: { type: string } }
+        - { name: title_type, in: query, schema: { type: string } }
+        - { name: num_votes, in: query, schema: { type: string } }
+        - { name: runtime, in: query, schema: { type: string } }
+        - { name: sort, in: query, schema: { type: string } }
+      responses:
+        '200':
+          description: Advanced search results.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AdvancedSearchData' }
+  /{lang}/API/Title/{apiKey}/{id}:
+    get:
+      tags: [Title]
+      operationId: getTitle
+      summary: Get Title
+      description: Retrieve movie or series metadata by IMDb id (tt-format).
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Title data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TitleData' }
+  /{lang}/API/FullCast/{apiKey}/{id}:
+    get:
+      tags: [Title]
+      operationId: getFullCast
+      summary: Get Full Cast And Crew
+      description: Retrieve complete cast and crew for a title.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Full cast data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/FullCastData' }
+  /{lang}/API/Posters/{apiKey}/{id}:
+    get:
+      tags: [Title]
+      operationId: getPosters
+      summary: Get Posters
+      description: Retrieve poster and backdrop images for a title.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Poster data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PosterData' }
+  /{lang}/API/Images/{apiKey}/{id}:
+    get:
+      tags: [Title]
+      operationId: getImages
+      summary: Get Images
+      description: Retrieve a paged set of images for a title or person.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbOrNameId'
+      responses:
+        '200':
+          description: Image data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ImageData' }
+  /{lang}/API/Trailer/{apiKey}/{id}:
+    get:
+      tags: [Title]
+      operationId: getTrailer
+      summary: Get Trailer
+      description: Retrieve the trailer for a title.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Trailer data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TrailerData' }
+  /{lang}/API/YouTubeTrailer/{apiKey}/{id}:
+    get:
+      tags: [Title]
+      operationId: getYouTubeTrailer
+      summary: Get YouTube Trailer
+      description: Retrieve the YouTube trailer URL for a title.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: YouTube trailer data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/YouTubeTrailerData' }
+  /{lang}/API/Ratings/{apiKey}/{id}:
+    get:
+      tags: [Title]
+      operationId: getRatings
+      summary: Get Ratings
+      description: Retrieve ratings from IMDb, Metacritic, Rotten Tomatoes, TMDB and FilmAffinity.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Ratings data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RatingData' }
+  /{lang}/API/UserRatings/{apiKey}/{id}:
+    get:
+      tags: [Title]
+      operationId: getUserRatings
+      summary: Get User Ratings
+      description: Retrieve user vote distribution for a title.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: User ratings data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserRatingData' }
+  /{lang}/API/SeasonEpisodes/{apiKey}/{id}/{seasonNumber}:
+    get:
+      tags: [Title]
+      operationId: getSeasonEpisodes
+      summary: Get Season Episodes
+      description: List episodes for a given series season.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+        - { name: seasonNumber, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200':
+          description: Season episode data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SeasonEpisodeData' }
+  /{lang}/API/Wikipedia/{apiKey}/{id}:
+    get:
+      tags: [External]
+      operationId: getWikipedia
+      summary: Get Wikipedia Plot
+      description: Retrieve Wikipedia plot summary (PlainText and Html).
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Wikipedia data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/WikipediaData' }
+  /{lang}/API/ExternalSites/{apiKey}/{id}:
+    get:
+      tags: [External]
+      operationId: getExternalSites
+      summary: Get External Sites
+      description: Retrieve cross-platform identifiers and URLs for a title.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: External site data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ExternalSiteData' }
+  /{lang}/API/Reviews/{apiKey}/{id}:
+    get:
+      tags: [External]
+      operationId: getReviews
+      summary: Get User Reviews
+      description: Retrieve user reviews for a title.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Review data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ReviewData' }
+  /{lang}/API/MetacriticReviews/{apiKey}/{id}:
+    get:
+      tags: [External]
+      operationId: getMetacriticReviews
+      summary: Get Metacritic Reviews
+      description: Retrieve Metacritic critic reviews for a title.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: Metacritic review data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MetacriticReviewData' }
+  /{lang}/API/IMDbList/{apiKey}/{id}:
+    get:
+      tags: [Lists]
+      operationId: getIMDbList
+      summary: Get IMDb User List
+      description: Retrieve a curated IMDb user list (ls-format id).
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - { name: id, in: path, required: true, schema: { type: string, pattern: '^ls\\d+$' } }
+      responses:
+        '200':
+          description: IMDb list data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/IMDbListData' }
+  /{lang}/API/FAQ/{apiKey}/{id}:
+    get:
+      tags: [External]
+      operationId: getFAQ
+      summary: Get FAQ
+      description: Retrieve frequently asked questions for a title.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - $ref: '#/components/parameters/ImdbId'
+      responses:
+        '200':
+          description: FAQ data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/FAQData' }
+  /{lang}/API/Name/{apiKey}/{id}:
+    get:
+      tags: [Name]
+      operationId: getName
+      summary: Get Person
+      description: Retrieve actor, director or writer information by IMDb name id (nm-format).
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - { name: id, in: path, required: true, schema: { type: string, pattern: '^nm\\d+$' } }
+      responses:
+        '200':
+          description: Name data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/NameData' }
+  /{lang}/API/NameAwards/{apiKey}/{id}:
+    get:
+      tags: [Name]
+      operationId: getNameAwards
+      summary: Get Person Awards
+      description: Retrieve awards for a person by IMDb name id.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - { name: id, in: path, required: true, schema: { type: string, pattern: '^nm\\d+$' } }
+      responses:
+        '200':
+          description: Name award data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/NameAwardData' }
+  /{lang}/API/Company/{apiKey}/{id}:
+    get:
+      tags: [External]
+      operationId: getCompany
+      summary: Get Company
+      description: Retrieve production company information and titles by IMDb company id (co-format).
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - { name: id, in: path, required: true, schema: { type: string, pattern: '^co\\d+$' } }
+      responses:
+        '200':
+          description: Company data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/CompanyData' }
+  /{lang}/API/Keyword/{apiKey}/{id}:
+    get:
+      tags: [External]
+      operationId: getKeyword
+      summary: Get Keyword
+      description: Retrieve titles related to a keyword.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200':
+          description: Keyword data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/KeywordData' }
+  /{lang}/API/Top250Movies/{apiKey}:
+    get:
+      tags: [Lists]
+      operationId: getTop250Movies
+      summary: Get Top 250 Movies
+      description: Retrieve IMDb's Top 250 movies list.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Top 250 movies.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Top250Data' }
+  /{lang}/API/Top250TVs/{apiKey}:
+    get:
+      tags: [Lists]
+      operationId: getTop250TVs
+      summary: Get Top 250 TV Series
+      description: Retrieve IMDb's Top 250 TV series list.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Top 250 TV series.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Top250Data' }
+  /{lang}/API/MostPopularMovies/{apiKey}:
+    get:
+      tags: [Lists]
+      operationId: getMostPopularMovies
+      summary: Get Most Popular Movies
+      description: Retrieve currently most popular movies.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Most popular movies.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MostPopularData' }
+  /{lang}/API/MostPopularTVs/{apiKey}:
+    get:
+      tags: [Lists]
+      operationId: getMostPopularTVs
+      summary: Get Most Popular TV Series
+      description: Retrieve currently most popular TV series.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Most popular TV series.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MostPopularData' }
+  /{lang}/API/InTheaters/{apiKey}:
+    get:
+      tags: [Lists]
+      operationId: getInTheaters
+      summary: Get Movies In Theaters
+      description: Retrieve movies currently in theaters.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: In-theater movies.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/NewMovieData' }
+  /{lang}/API/ComingSoon/{apiKey}:
+    get:
+      tags: [Lists]
+      operationId: getComingSoon
+      summary: Get Coming Soon Movies
+      description: Retrieve upcoming movie releases.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Coming soon movies.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/NewMovieData' }
+  /{lang}/API/BoxOffice/{apiKey}:
+    get:
+      tags: [Lists]
+      operationId: getBoxOffice
+      summary: Get Weekend Box Office
+      description: Retrieve the latest weekend box office results.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Weekend box office.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BoxOfficeWeekendData' }
+  /{lang}/API/BoxOfficeAllTime/{apiKey}:
+    get:
+      tags: [Lists]
+      operationId: getBoxOfficeAllTime
+      summary: Get All-Time Box Office
+      description: Retrieve the all-time box office leaders.
+      parameters:
+        - $ref: '#/components/parameters/Lang'
+        - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: All-time box office.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/BoxOfficeAllTimeData' }
+  /API/Usage/{apiKey}:
+    get:
+      tags: [Tools]
+      operationId: getUsage
+      summary: Get API Usage
+      description: Retrieve current account usage and quota consumption.
+      parameters:
+        - $ref: '#/components/parameters/ApiKey'
+      responses:
+        '200':
+          description: Usage data.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UsageData' }
+  /API/ResizeImage:
+    get:
+      tags: [Tools]
+      operationId: resizeImage
+      summary: Resize Image
+      description: Resize an arbitrary image URL to the requested dimensions.
+      parameters:
+        - { name: apiKey, in: query, required: true, schema: { type: string } }
+        - { name: size, in: query, required: true, description: 'Format WxH (e.g. 320x240)', schema: { type: string } }
+        - { name: url, in: query, required: true, schema: { type: string, format: uri } }
+      responses:
+        '200':
+          description: Resized image URL.
+  /API/ResizePoster:
+    get:
+      tags: [Tools]
+      operationId: resizePoster
+      summary: Resize Poster
+      description: Resize a poster or backdrop URL using preset width tokens (w45-w1280, s32-s470).
+      parameters:
+        - { name: apiKey, in: query, required: true, schema: { type: string } }
+        - { name: size, in: query, required: true, schema: { type: string } }
+        - { name: url, in: query, required: true, schema: { type: string, format: uri } }
+      responses:
+        '200':
+          description: Resized poster URL.
+components:
+  securitySchemes:
+    ApiKeyInPath:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: API key issued at https://tv-api.com after sign-up. Embedded directly in the request path for most endpoints.
+  parameters:
+    Lang:
+      name: lang
+      in: path
+      required: true
+      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
+      schema: { type: string, default: en }
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema: { type: string }
+    Expression:
+      name: expression
+      in: path
+      required: true
+      description: URL-encoded search expression.
+      schema: { type: string }
+    ImdbId:
+      name: id
+      in: path
+      required: true
+      description: IMDb title id in tt-format (e.g. tt1375666).
+      schema: { type: string, pattern: '^tt\\d+$' }
+    ImdbOrNameId:
+      name: id
+      in: path
+      required: true
+      description: IMDb title (tt-format) or name (nm-format) id.
+      schema: { type: string, pattern: '^(tt|nm)\\d+$' }
+  schemas:
+    SearchData:
+      type: object
+      properties:
+        searchType: { type: string }
+        expression: { type: string }
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/SearchResult' }
+        errorMessage: { type: string }
+    SearchResult:
+      type: object
+      properties:
+        id: { type: string }
+        resultType: { type: string }
+        image: { type: string, format: uri }
+        title: { type: string }
+        description: { type: string }
+    AdvancedSearchData:
+      type: object
+      properties:
+        results:
+          type: array
+          items: { $ref: '#/components/schemas/SearchResult' }
+        errorMessage: { type: string }
+    TitleData:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        originalTitle: { type: string }
+        fullTitle: { type: string }
+        type: { type: string }
+        year: { type: string }
+        image: { type: string, format: uri }
+        releaseDate: { type: string }
+        runtimeMins: { type: string }
+        runtimeStr: { type: string }
+        plot: { type: string }
+        plotLocal: { type: string }
+        awards: { type: string }
+        directors: { type: string }
+        directorList:
+          type: array
+          items: { $ref: '#/components/schemas/StarShort' }
+        writers: { type: string }
+        writerList:
+          type: array
+          items: { $ref: '#/components/schemas/StarShort' }
+        stars: { type: string }
+        starList:
+          type: array
+          items: { $ref: '#/components/schemas/StarShort' }
+        actorList:
+          type: array
+          items: { $ref: '#/components/schemas/ActorShort' }
+        genres: { type: string }
+        companies: { type: string }
+        countries: { type: string }
+        languages: { type: string }
+        contentRating: { type: string }
+        imDbRating: { type: string }
+        imDbRatingVotes: { type: string }
+        metacriticRating: { type: string }
+        ratings: { $ref: '#/components/schemas/RatingData' }
+        wikipedia: { $ref: '#/components/schemas/WikipediaData' }
+        posters: { $ref: '#/components/schemas/PosterData' }
+        images: { $ref: '#/components/schemas/ImageData' }
+        trailer: { $ref: '#/components/schemas/TrailerData' }
+        boxOffice: { $ref: '#/components/schemas/BoxOfficeShort' }
+        tagline: { type: string }
+        keywords: { type: string }
+        keywordList:
+          type: array
+          items: { type: string }
+        similars:
+          type: array
+          items: { $ref: '#/components/schemas/SimilarShort' }
+        tvSeriesInfo: { $ref: '#/components/schemas/TvSeriesInfo' }
+        tvEpisodeInfo: { $ref: '#/components/schemas/TvEpisodeInfo' }
+        errorMessage: { type: string }
+    StarShort:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+    ActorShort:
+      type: object
+      properties:
+        id: { type: string }
+        image: { type: string, format: uri }
+        name: { type: string }
+        asCharacter: { type: string }
+    SimilarShort:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        image: { type: string, format: uri }
+        imDbRating: { type: string }
+    BoxOfficeShort:
+      type: object
+      properties:
+        budget: { type: string }
+        openingWeekendUSA: { type: string }
+        grossUSA: { type: string }
+        cumulativeWorldwideGross: { type: string }
+    TvSeriesInfo:
+      type: object
+      properties:
+        yearEnd: { type: string }
+        creators: { type: string }
+        creatorList:
+          type: array
+          items: { $ref: '#/components/schemas/StarShort' }
+        seasons:
+          type: array
+          items: { type: string }
+    TvEpisodeInfo:
+      type: object
+      properties:
+        seriesId: { type: string }
+        seriesTitle: { type: string }
+        seriesFullTitle: { type: string }
+        seriesYear: { type: string }
+        seasonNumber: { type: string }
+        episodeNumber: { type: string }
+        previousEpisodeId: { type: string }
+        nextEpisodeId: { type: string }
+    FullCastData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        directors:
+          type: object
+        writers:
+          type: object
+        actors:
+          type: array
+          items: { $ref: '#/components/schemas/ActorShort' }
+        others:
+          type: array
+        errorMessage: { type: string }
+    PosterData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        posters:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              link: { type: string, format: uri }
+              aspectRatio: { type: number }
+              language: { type: string }
+              width: { type: integer }
+              height: { type: integer }
+        backdrops:
+          type: array
+          items:
+            type: object
+        errorMessage: { type: string }
+    ImageData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              title: { type: string }
+              image: { type: string, format: uri }
+        errorMessage: { type: string }
+    TrailerData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        thumbnailUrl: { type: string, format: uri }
+        link: { type: string, format: uri }
+        linkEmbed: { type: string, format: uri }
+        errorMessage: { type: string }
+    YouTubeTrailerData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        videoId: { type: string }
+        videoUrl: { type: string, format: uri }
+        videoTitle: { type: string }
+        errorMessage: { type: string }
+    RatingData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        fullTitle: { type: string }
+        type: { type: string }
+        year: { type: string }
+        imDb: { type: string }
+        metacritic: { type: string }
+        theMovieDb: { type: string }
+        rottenTomatoes: { type: string }
+        filmAffinity: { type: string }
+        errorMessage: { type: string }
+    UserRatingData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        totalRating: { type: string }
+        totalRatingVotes: { type: string }
+        ratings:
+          type: array
+          items:
+            type: object
+            properties:
+              rating: { type: string }
+              percent: { type: string }
+              votes: { type: string }
+        errorMessage: { type: string }
+    SeasonEpisodeData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        episodes:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              seasonNumber: { type: string }
+              episodeNumber: { type: string }
+              title: { type: string }
+              image: { type: string, format: uri }
+              year: { type: string }
+              released: { type: string }
+              plot: { type: string }
+              imDbRating: { type: string }
+        errorMessage: { type: string }
+    WikipediaData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        url: { type: string, format: uri }
+        language: { type: string }
+        plotShort:
+          type: object
+          properties:
+            plainText: { type: string }
+            html: { type: string }
+        plotFull:
+          type: object
+          properties:
+            plainText: { type: string }
+            html: { type: string }
+        errorMessage: { type: string }
+    ExternalSiteData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              name: { type: string }
+              id: { type: string }
+              url: { type: string, format: uri }
+        errorMessage: { type: string }
+    ReviewData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              username: { type: string }
+              userUrl: { type: string, format: uri }
+              reviewLink: { type: string, format: uri }
+              warningSpoilers: { type: boolean }
+              date: { type: string }
+              rate: { type: string }
+              helpful: { type: string }
+              title: { type: string }
+              content: { type: string }
+        errorMessage: { type: string }
+    MetacriticReviewData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              username: { type: string }
+              date: { type: string }
+              rate: { type: string }
+              title: { type: string }
+              content: { type: string }
+        errorMessage: { type: string }
+    IMDbListData:
+      type: object
+      properties:
+        listId: { type: string }
+        title: { type: string }
+        listType: { type: string }
+        author: { type: string }
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/SearchResult' }
+        errorMessage: { type: string }
+    FAQData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        title: { type: string }
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              question: { type: string }
+              answer: { type: string }
+        errorMessage: { type: string }
+    NameData:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        role: { type: string }
+        image: { type: string, format: uri }
+        summary: { type: string }
+        birthDate: { type: string }
+        deathDate: { type: string }
+        awards: { type: string }
+        height: { type: string }
+        knownFor:
+          type: array
+          items: { $ref: '#/components/schemas/SimilarShort' }
+        castMovies:
+          type: array
+          items:
+            type: object
+        errorMessage: { type: string }
+    NameAwardData:
+      type: object
+      properties:
+        imDbId: { type: string }
+        name: { type: string }
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              eventName: { type: string }
+              eventYear: { type: string }
+              awards:
+                type: array
+        errorMessage: { type: string }
+    CompanyData:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/SearchResult' }
+        errorMessage: { type: string }
+    KeywordData:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/SearchResult' }
+        errorMessage: { type: string }
+    Top250Data:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              rank: { type: string }
+              title: { type: string }
+              fullTitle: { type: string }
+              year: { type: string }
+              image: { type: string, format: uri }
+              crew: { type: string }
+              imDbRating: { type: string }
+              imDbRatingCount: { type: string }
+        errorMessage: { type: string }
+    MostPopularData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              rank: { type: string }
+              rankUpDown: { type: string }
+              title: { type: string }
+              fullTitle: { type: string }
+              year: { type: string }
+              image: { type: string, format: uri }
+              crew: { type: string }
+              imDbRating: { type: string }
+              imDbRatingCount: { type: string }
+        errorMessage: { type: string }
+    NewMovieData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              title: { type: string }
+              image: { type: string, format: uri }
+              releaseState: { type: string }
+              runtimeMins: { type: string }
+              runtimeStr: { type: string }
+              plot: { type: string }
+              contentRating: { type: string }
+              imDbRating: { type: string }
+              genres: { type: string }
+              stars: { type: string }
+        errorMessage: { type: string }
+    BoxOfficeWeekendData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              rank: { type: string }
+              title: { type: string }
+              weekend: { type: string }
+              gross: { type: string }
+              weeks: { type: string }
+              image: { type: string, format: uri }
+        errorMessage: { type: string }
+    BoxOfficeAllTimeData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              rank: { type: string }
+              title: { type: string }
+              worldwideLifetimeGross: { type: string }
+              domesticLifetimeGross: { type: string }
+              foreignLifetimeGross: { type: string }
+              year: { type: string }
+        errorMessage: { type: string }
+    UsageData:
+      type: object
+      properties:
+        count: { type: integer }
+        maximum: { type: integer }
+        errorMessage: { type: string }

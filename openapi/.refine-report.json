@@ -1,0 +1,24 @@
+{
+  "provider": "imdb-api",
+  "sources": [
+    "imdb-api-external-api-openapi.yml",
+    "imdb-api-lists-api-openapi.yml",
+    "imdb-api-name-api-openapi.yml",
+    "imdb-api-search-api-openapi.yml",
+    "imdb-api-title-api-openapi.yml",
+    "imdb-api-tools-api-openapi.yml"
+  ],
+  "outputs": [
+    "imdb-api-external-api-openapi.yml",
+    "imdb-api-lists-api-openapi.yml",
+    "imdb-api-name-api-openapi.yml",
+    "imdb-api-search-api-openapi.yml",
+    "imdb-api-title-api-openapi.yml",
+    "imdb-api-tools-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
