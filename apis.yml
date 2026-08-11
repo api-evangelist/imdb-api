@@ -353,6 +353,8 @@ apis:
   - type: Plans
     url: plans/imdb-api-plans-pricing.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/IMDb-API/IMDbApiLib/issues
   - type: AgenticAccess
     url: agentic-access/imdb-api-agentic-access.yml
   - type: DomainSecurity
