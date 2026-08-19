@@ -1,0 +1,977 @@
+{
+  "item": [
+    {
+      "id": "9b6790ff-8302-4e25-9fa0-b22955eb78af",
+      "name": "Search",
+      "description": {
+        "content": "Free-text and faceted search across titles, names, companies and keywords.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "241c6c94-1074-4e54-b1c9-7c93eb39eae0",
+          "name": "Search Titles, Names And Companies",
+          "request": {
+            "name": "Search Titles, Names And Companies",
+            "description": {
+              "content": "Full search across titles, names, episodes, companies and keywords.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Search",
+                ":apiKey",
+                ":expression"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "expression",
+                  "description": "(Required) URL-encoded search expression."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3c45caf-f645-472f-b1b0-c72c892546f5",
+              "name": "Search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Search",
+                    ":apiKey",
+                    ":expression"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "expression",
+                      "description": "(Required) URL-encoded search expression."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"searchType\": \"string\",\n  \"expression\": \"string\",\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"http://nbcByAenDJ.twxWfQPmeRMzd-jfeolfIrzaof8no-0BVSZTk2RiXQ3.5GNwVOLZhU2u9\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://PzfjKRqGhiXcsfZP.lsaK5Nmb-WUoKU0j5i.3wTJFQzFcgSZ9hrsEJ0r3oar8nR2P8q+HeUK7bHfoV\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb4152e8-f3e2-4963-8118-9b84f5ffc450",
+          "name": "Search Movies",
+          "request": {
+            "name": "Search Movies",
+            "description": {
+              "content": "Search constrained to movies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "SearchMovie",
+                ":apiKey",
+                ":expression"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "expression",
+                  "description": "(Required) URL-encoded search expression."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc22702e-9efe-4a48-9c2f-ec058f8ffb54",
+              "name": "Movie search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "SearchMovie",
+                    ":apiKey",
+                    ":expression"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "expression",
+                      "description": "(Required) URL-encoded search expression."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"searchType\": \"string\",\n  \"expression\": \"string\",\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"http://nbcByAenDJ.twxWfQPmeRMzd-jfeolfIrzaof8no-0BVSZTk2RiXQ3.5GNwVOLZhU2u9\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://PzfjKRqGhiXcsfZP.lsaK5Nmb-WUoKU0j5i.3wTJFQzFcgSZ9hrsEJ0r3oar8nR2P8q+HeUK7bHfoV\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c830e07e-1749-4731-a6d3-cfb7befc4f52",
+          "name": "Search TV Series",
+          "request": {
+            "name": "Search TV Series",
+            "description": {
+              "content": "Search constrained to TV series.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "SearchSeries",
+                ":apiKey",
+                ":expression"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "expression",
+                  "description": "(Required) URL-encoded search expression."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "324fe41a-2d2c-4049-97a0-873539bf1a24",
+              "name": "Series search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "SearchSeries",
+                    ":apiKey",
+                    ":expression"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "expression",
+                      "description": "(Required) URL-encoded search expression."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"searchType\": \"string\",\n  \"expression\": \"string\",\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"http://nbcByAenDJ.twxWfQPmeRMzd-jfeolfIrzaof8no-0BVSZTk2RiXQ3.5GNwVOLZhU2u9\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://PzfjKRqGhiXcsfZP.lsaK5Nmb-WUoKU0j5i.3wTJFQzFcgSZ9hrsEJ0r3oar8nR2P8q+HeUK7bHfoV\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b7a76a4-664c-4dde-889c-b0d772bfa9f5",
+          "name": "Search People",
+          "request": {
+            "name": "Search People",
+            "description": {
+              "content": "Search across actors, directors and writers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "SearchName",
+                ":apiKey",
+                ":expression"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "expression",
+                  "description": "(Required) URL-encoded search expression."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d7a1f74-1a05-48fb-bf69-edffaf114eb6",
+              "name": "Person search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "SearchName",
+                    ":apiKey",
+                    ":expression"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "expression",
+                      "description": "(Required) URL-encoded search expression."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"searchType\": \"string\",\n  \"expression\": \"string\",\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"http://nbcByAenDJ.twxWfQPmeRMzd-jfeolfIrzaof8no-0BVSZTk2RiXQ3.5GNwVOLZhU2u9\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://PzfjKRqGhiXcsfZP.lsaK5Nmb-WUoKU0j5i.3wTJFQzFcgSZ9hrsEJ0r3oar8nR2P8q+HeUK7bHfoV\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1dc17233-c664-45d5-9ce2-5047b95a675f",
+          "name": "Search Episodes",
+          "request": {
+            "name": "Search Episodes",
+            "description": {
+              "content": "Search constrained to TV episodes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "SearchEpisode",
+                ":apiKey",
+                ":expression"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "expression",
+                  "description": "(Required) URL-encoded search expression."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ca9a662-68dc-42fc-ab3f-e9e990e7b143",
+              "name": "Episode search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "SearchEpisode",
+                    ":apiKey",
+                    ":expression"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "expression",
+                      "description": "(Required) URL-encoded search expression."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"searchType\": \"string\",\n  \"expression\": \"string\",\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"http://nbcByAenDJ.twxWfQPmeRMzd-jfeolfIrzaof8no-0BVSZTk2RiXQ3.5GNwVOLZhU2u9\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://PzfjKRqGhiXcsfZP.lsaK5Nmb-WUoKU0j5i.3wTJFQzFcgSZ9hrsEJ0r3oar8nR2P8q+HeUK7bHfoV\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c81138e5-ff50-4927-bba7-38750fd22a32",
+          "name": "Search Companies",
+          "request": {
+            "name": "Search Companies",
+            "description": {
+              "content": "Search constrained to production companies and studios.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "SearchCompany",
+                ":apiKey",
+                ":expression"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "expression",
+                  "description": "(Required) URL-encoded search expression."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5da5f4cd-a67f-4d80-b8f6-38b21019aaac",
+              "name": "Company search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "SearchCompany",
+                    ":apiKey",
+                    ":expression"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "expression",
+                      "description": "(Required) URL-encoded search expression."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"searchType\": \"string\",\n  \"expression\": \"string\",\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"http://nbcByAenDJ.twxWfQPmeRMzd-jfeolfIrzaof8no-0BVSZTk2RiXQ3.5GNwVOLZhU2u9\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://PzfjKRqGhiXcsfZP.lsaK5Nmb-WUoKU0j5i.3wTJFQzFcgSZ9hrsEJ0r3oar8nR2P8q+HeUK7bHfoV\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62e1e9d6-2aad-4901-98b1-df3fc377ba46",
+          "name": "Advanced Search",
+          "request": {
+            "name": "Advanced Search",
+            "description": {
+              "content": "Faceted search supporting title, genre, type, votes, runtime and sort filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "AdvancedSearch",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "genres",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "title_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "num_votes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "runtime",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "910d52d9-7b71-4233-8cdf-3532dfb9b4f2",
+              "name": "Advanced search results.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "AdvancedSearch",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "genres",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "num_votes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "runtime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://PVdtaWczZIbEYtbgNSe.qwrdZkdweWUK++qiD5JLbWrwzyjEg2vLrb0VxCnrFkS\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://kEmoDSVfYhtwqzNMpgKCeZTlhoy.xdyUeysUM.g6wz5ZQncgcdY.2,SDabQYQDoN4ohRn1WcLLiSQwiu,87F4\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tv-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c3c74df1-9cfc-4edd-9df0-d7488f342be0",
+    "name": "IMDb-API (TV-API) External Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community web service (operated under the IMDb-API / TV-API brand) for receiving\nmovie, TV series and cast information in JSON. Aggregates data from IMDb,\nTheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and\nYouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an\nofficial IMDb / Amazon product.\n\n\nContact Support:\n Name: IMDb-API",
+      "type": "text/plain"
+    }
+  }
+}

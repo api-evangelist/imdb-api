@@ -1,0 +1,256 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IMDb-API (TV-API) External Lists API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get IMDb User List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/IMDbList/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a curated IMDb user list (ls-format id)."
+        },
+        {
+          "info": {
+            "name": "Get Top 250 Movies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/Top250Movies/:apiKey",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              }
+            ]
+          },
+          "docs": "Retrieve IMDb's Top 250 movies list."
+        },
+        {
+          "info": {
+            "name": "Get Top 250 TV Series",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/Top250TVs/:apiKey",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              }
+            ]
+          },
+          "docs": "Retrieve IMDb's Top 250 TV series list."
+        },
+        {
+          "info": {
+            "name": "Get Most Popular Movies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/MostPopularMovies/:apiKey",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              }
+            ]
+          },
+          "docs": "Retrieve currently most popular movies."
+        },
+        {
+          "info": {
+            "name": "Get Most Popular TV Series",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/MostPopularTVs/:apiKey",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              }
+            ]
+          },
+          "docs": "Retrieve currently most popular TV series."
+        },
+        {
+          "info": {
+            "name": "Get Movies In Theaters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/InTheaters/:apiKey",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              }
+            ]
+          },
+          "docs": "Retrieve movies currently in theaters."
+        },
+        {
+          "info": {
+            "name": "Get Coming Soon Movies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/ComingSoon/:apiKey",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              }
+            ]
+          },
+          "docs": "Retrieve upcoming movie releases."
+        },
+        {
+          "info": {
+            "name": "Get Weekend Box Office",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/BoxOffice/:apiKey",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              }
+            ]
+          },
+          "docs": "Retrieve the latest weekend box office results."
+        },
+        {
+          "info": {
+            "name": "Get All-Time Box Office",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/BoxOfficeAllTime/:apiKey",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              }
+            ]
+          },
+          "docs": "Retrieve the all-time box office leaders."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

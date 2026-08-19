@@ -1,0 +1,267 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IMDb-API (TV-API) External Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Titles, Names And Companies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/Search/:apiKey/:expression",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "expression",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded search expression."
+              }
+            ]
+          },
+          "docs": "Full search across titles, names, episodes, companies and keywords."
+        },
+        {
+          "info": {
+            "name": "Search Movies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/SearchMovie/:apiKey/:expression",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "expression",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded search expression."
+              }
+            ]
+          },
+          "docs": "Search constrained to movies."
+        },
+        {
+          "info": {
+            "name": "Search TV Series",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/SearchSeries/:apiKey/:expression",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "expression",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded search expression."
+              }
+            ]
+          },
+          "docs": "Search constrained to TV series."
+        },
+        {
+          "info": {
+            "name": "Search People",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/SearchName/:apiKey/:expression",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "expression",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded search expression."
+              }
+            ]
+          },
+          "docs": "Search across actors, directors and writers."
+        },
+        {
+          "info": {
+            "name": "Search Episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/SearchEpisode/:apiKey/:expression",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "expression",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded search expression."
+              }
+            ]
+          },
+          "docs": "Search constrained to TV episodes."
+        },
+        {
+          "info": {
+            "name": "Search Companies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/SearchCompany/:apiKey/:expression",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "expression",
+                "value": "",
+                "type": "path",
+                "description": "URL-encoded search expression."
+              }
+            ]
+          },
+          "docs": "Search constrained to production companies and studios."
+        },
+        {
+          "info": {
+            "name": "Advanced Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/AdvancedSearch/:apiKey",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "genres",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "title_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "num_votes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "runtime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Faceted search supporting title, genre, type, votes, runtime and sort filters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

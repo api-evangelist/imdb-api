@@ -1,0 +1,1064 @@
+{
+  "item": [
+    {
+      "id": "61c70cc8-d030-4100-bc9c-c5248321a097",
+      "name": "Lists",
+      "description": {
+        "content": "Curated and aggregated lists (Top 250, Most Popular, In Theaters, Coming Soon, Box Office).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8bf83a60-e2f2-43a5-8a1e-df53458df1f8",
+          "name": "Get IMDb User List",
+          "request": {
+            "name": "Get IMDb User List",
+            "description": {
+              "content": "Retrieve a curated IMDb user list (ls-format id).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "IMDbList",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "142bfa4b-1bbb-4351-b825-0900a9553d5f",
+              "name": "IMDb list data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "IMDbList",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listId\": \"string\",\n  \"title\": \"string\",\n  \"listType\": \"string\",\n  \"author\": \"string\",\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"http://KDaLsNHfdPGRJm.turyhlmdiMj2A-O6iA\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://afQrcvanitotXwkmWVCzyZ.fpuksNesgTVpu73AzL1o6r6XzPdtwENO4OoU5R4RJa8SswE\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53549e83-d00a-48a9-9b8e-40abf180b5cf",
+          "name": "Get Top 250 Movies",
+          "request": {
+            "name": "Get Top 250 Movies",
+            "description": {
+              "content": "Retrieve IMDb's Top 250 movies list.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Top250Movies",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6da71242-3128-4de3-aba8-5427d78e4231",
+              "name": "Top 250 movies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Top250Movies",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"title\": \"string\",\n      \"fullTitle\": \"string\",\n      \"year\": \"string\",\n      \"image\": \"http://eXERjbxTOypNxnSwyhOWiZf.xuTv4O0\",\n      \"crew\": \"string\",\n      \"imDbRating\": \"string\",\n      \"imDbRatingCount\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"title\": \"string\",\n      \"fullTitle\": \"string\",\n      \"year\": \"string\",\n      \"image\": \"http://EFKyCxogXhhilvkRDBDrgsiRDarI.blHXjejqSvwsd+GXj2oxVy2sNyqKR1F\",\n      \"crew\": \"string\",\n      \"imDbRating\": \"string\",\n      \"imDbRatingCount\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23ebcae5-0634-40a9-902f-4a456358f928",
+          "name": "Get Top 250 TV Series",
+          "request": {
+            "name": "Get Top 250 TV Series",
+            "description": {
+              "content": "Retrieve IMDb's Top 250 TV series list.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Top250TVs",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91b3f7e9-080f-4eeb-86d4-7967fa7b9122",
+              "name": "Top 250 TV series.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Top250TVs",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"title\": \"string\",\n      \"fullTitle\": \"string\",\n      \"year\": \"string\",\n      \"image\": \"http://eXERjbxTOypNxnSwyhOWiZf.xuTv4O0\",\n      \"crew\": \"string\",\n      \"imDbRating\": \"string\",\n      \"imDbRatingCount\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"title\": \"string\",\n      \"fullTitle\": \"string\",\n      \"year\": \"string\",\n      \"image\": \"http://EFKyCxogXhhilvkRDBDrgsiRDarI.blHXjejqSvwsd+GXj2oxVy2sNyqKR1F\",\n      \"crew\": \"string\",\n      \"imDbRating\": \"string\",\n      \"imDbRatingCount\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95fbf06f-4d10-4e4a-81ba-3bf17f0b3d7f",
+          "name": "Get Most Popular Movies",
+          "request": {
+            "name": "Get Most Popular Movies",
+            "description": {
+              "content": "Retrieve currently most popular movies.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "MostPopularMovies",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d886c5b7-2ae3-40ce-82bc-dadef3c6151b",
+              "name": "Most popular movies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "MostPopularMovies",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"rankUpDown\": \"string\",\n      \"title\": \"string\",\n      \"fullTitle\": \"string\",\n      \"year\": \"string\",\n      \"image\": \"https://EdSSl.umnGC5v2AIMf9q1wc96E6AzMlmDEPImZH\",\n      \"crew\": \"string\",\n      \"imDbRating\": \"string\",\n      \"imDbRatingCount\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"rankUpDown\": \"string\",\n      \"title\": \"string\",\n      \"fullTitle\": \"string\",\n      \"year\": \"string\",\n      \"image\": \"http://QzormPxaWQLRqQljNcYiNvUIPgJc.ajlt-DPBFRem9v+bKUm1oApEiMB+P\",\n      \"crew\": \"string\",\n      \"imDbRating\": \"string\",\n      \"imDbRatingCount\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9616a96a-b04c-4d09-a47c-591cf330691e",
+          "name": "Get Most Popular TV Series",
+          "request": {
+            "name": "Get Most Popular TV Series",
+            "description": {
+              "content": "Retrieve currently most popular TV series.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "MostPopularTVs",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67e66bf3-23e2-4349-bcd5-c3831745ae4d",
+              "name": "Most popular TV series.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "MostPopularTVs",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"rankUpDown\": \"string\",\n      \"title\": \"string\",\n      \"fullTitle\": \"string\",\n      \"year\": \"string\",\n      \"image\": \"https://EdSSl.umnGC5v2AIMf9q1wc96E6AzMlmDEPImZH\",\n      \"crew\": \"string\",\n      \"imDbRating\": \"string\",\n      \"imDbRatingCount\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"rankUpDown\": \"string\",\n      \"title\": \"string\",\n      \"fullTitle\": \"string\",\n      \"year\": \"string\",\n      \"image\": \"http://QzormPxaWQLRqQljNcYiNvUIPgJc.ajlt-DPBFRem9v+bKUm1oApEiMB+P\",\n      \"crew\": \"string\",\n      \"imDbRating\": \"string\",\n      \"imDbRatingCount\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97b86c86-0cec-4eef-8c49-e929bc16abe8",
+          "name": "Get Movies In Theaters",
+          "request": {
+            "name": "Get Movies In Theaters",
+            "description": {
+              "content": "Retrieve movies currently in theaters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "InTheaters",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cf3208e-8d31-4c70-9de2-f4d018758afe",
+              "name": "In-theater movies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "InTheaters",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"https://ZIxUdznQUtR.yxp1XGjqzK7lTYGgAHOtuw\",\n      \"releaseState\": \"string\",\n      \"runtimeMins\": \"string\",\n      \"runtimeStr\": \"string\",\n      \"plot\": \"string\",\n      \"contentRating\": \"string\",\n      \"imDbRating\": \"string\",\n      \"genres\": \"string\",\n      \"stars\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"http://PRXMjvtnakUreRyXLb.xqpyaRx6CjtaZYj.mSaNuCoOgetGaecP6xgMgIiM-zkpOgYARQ7eoH\",\n      \"releaseState\": \"string\",\n      \"runtimeMins\": \"string\",\n      \"runtimeStr\": \"string\",\n      \"plot\": \"string\",\n      \"contentRating\": \"string\",\n      \"imDbRating\": \"string\",\n      \"genres\": \"string\",\n      \"stars\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8aae99e1-b6d5-4eb8-ba0d-45eab926efbe",
+          "name": "Get Coming Soon Movies",
+          "request": {
+            "name": "Get Coming Soon Movies",
+            "description": {
+              "content": "Retrieve upcoming movie releases.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "ComingSoon",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c08d6606-f026-4038-a301-c808650a343c",
+              "name": "Coming soon movies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "ComingSoon",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"https://ZIxUdznQUtR.yxp1XGjqzK7lTYGgAHOtuw\",\n      \"releaseState\": \"string\",\n      \"runtimeMins\": \"string\",\n      \"runtimeStr\": \"string\",\n      \"plot\": \"string\",\n      \"contentRating\": \"string\",\n      \"imDbRating\": \"string\",\n      \"genres\": \"string\",\n      \"stars\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"http://PRXMjvtnakUreRyXLb.xqpyaRx6CjtaZYj.mSaNuCoOgetGaecP6xgMgIiM-zkpOgYARQ7eoH\",\n      \"releaseState\": \"string\",\n      \"runtimeMins\": \"string\",\n      \"runtimeStr\": \"string\",\n      \"plot\": \"string\",\n      \"contentRating\": \"string\",\n      \"imDbRating\": \"string\",\n      \"genres\": \"string\",\n      \"stars\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8dc2563c-885f-4fff-905e-1a62933c7587",
+          "name": "Get Weekend Box Office",
+          "request": {
+            "name": "Get Weekend Box Office",
+            "description": {
+              "content": "Retrieve the latest weekend box office results.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "BoxOffice",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d10553aa-b7ab-4687-92ee-4590b08f7ddb",
+              "name": "Weekend box office.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "BoxOffice",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"title\": \"string\",\n      \"weekend\": \"string\",\n      \"gross\": \"string\",\n      \"weeks\": \"string\",\n      \"image\": \"http://lsi.itguHbT-VPAvbm7jAbKvaNo2+Qq3JYL6JjfLKsGOmzIYpsWAyxLasA\"\n    },\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"title\": \"string\",\n      \"weekend\": \"string\",\n      \"gross\": \"string\",\n      \"weeks\": \"string\",\n      \"image\": \"http://BBfuToHMpMOtpIIKw.fnboLt-hkb1p,F.2kiJqps9u8CLpj5P.NiCWvTpQuPetFA\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e82ca167-ca3f-4d3c-9770-b06d21d6ad91",
+          "name": "Get All-Time Box Office",
+          "request": {
+            "name": "Get All-Time Box Office",
+            "description": {
+              "content": "Retrieve the all-time box office leaders.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "BoxOfficeAllTime",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c86313fd-34d1-4607-945f-0b99c4ce23ba",
+              "name": "All-time box office.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "BoxOfficeAllTime",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"title\": \"string\",\n      \"worldwideLifetimeGross\": \"string\",\n      \"domesticLifetimeGross\": \"string\",\n      \"foreignLifetimeGross\": \"string\",\n      \"year\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"rank\": \"string\",\n      \"title\": \"string\",\n      \"worldwideLifetimeGross\": \"string\",\n      \"domesticLifetimeGross\": \"string\",\n      \"foreignLifetimeGross\": \"string\",\n      \"year\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tv-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "49df6730-64c2-429e-a869-9d33770ea429",
+    "name": "IMDb-API (TV-API) External Lists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community web service (operated under the IMDb-API / TV-API brand) for receiving\nmovie, TV series and cast information in JSON. Aggregates data from IMDb,\nTheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and\nYouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an\nofficial IMDb / Amazon product.\n\n\nContact Support:\n Name: IMDb-API",
+      "type": "text/plain"
+    }
+  }
+}

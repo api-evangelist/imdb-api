@@ -1,0 +1,336 @@
+{
+  "item": [
+    {
+      "id": "fff400fc-b69b-4f76-bcb8-96f800f6e7a0",
+      "name": "Tools",
+      "description": {
+        "content": "Image utilities and account usage.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4eda09fb-2971-4b9f-91a5-9c50a308e62f",
+          "name": "Get API Usage",
+          "request": {
+            "name": "Get API Usage",
+            "description": {
+              "content": "Retrieve current account usage and quota consumption.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "API",
+                "Usage",
+                ":apiKey"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d50e800-fdbd-4607-99b4-b5b2d11b6e45",
+              "name": "Usage data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "API",
+                    "Usage",
+                    ":apiKey"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 6272,\n  \"maximum\": 5384,\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0147106-aa00-4b45-a828-0881fd9a392d",
+          "name": "Resize Image",
+          "request": {
+            "name": "Resize Image",
+            "description": {
+              "content": "Resize an arbitrary image URL to the requested dimensions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "API",
+                "ResizeImage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apiKey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<string>",
+                  "description": "(Required) Format WxH (e.g. 320x240)"
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95d9203f-fd95-43c2-b36f-86fc417e7bb8",
+              "name": "Resized image URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "API",
+                    "ResizeImage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0db5c6c-191a-46ab-bf97-78ccaba2054c",
+          "name": "Resize Poster",
+          "request": {
+            "name": "Resize Poster",
+            "description": {
+              "content": "Resize a poster or backdrop URL using preset width tokens (w45-w1280, s32-s470).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "API",
+                "ResizePoster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "apiKey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "url",
+                  "value": "<uri>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd4de15a-aebd-4bb2-beda-9d9331c634d3",
+              "name": "Resized poster URL.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "API",
+                    "ResizePoster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "url",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tv-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a3d9aaef-2646-4688-ba8e-450a5356ae83",
+    "name": "IMDb-API (TV-API) External Tools API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community web service (operated under the IMDb-API / TV-API brand) for receiving\nmovie, TV series and cast information in JSON. Aggregates data from IMDb,\nTheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and\nYouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an\nofficial IMDb / Amazon product.\n\n\nContact Support:\n Name: IMDb-API",
+      "type": "text/plain"
+    }
+  }
+}

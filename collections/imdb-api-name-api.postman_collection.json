@@ -1,0 +1,303 @@
+{
+  "item": [
+    {
+      "id": "812c138c-2ca8-4942-945e-6238ba89af29",
+      "name": "Name",
+      "description": {
+        "content": "People (actors, directors, writers) information and awards.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1bdde033-950a-4273-a5b1-cac4eae6cbea",
+          "name": "Get Person",
+          "request": {
+            "name": "Get Person",
+            "description": {
+              "content": "Retrieve actor, director or writer information by IMDb name id (nm-format).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Name",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2adec78d-451d-4d92-9ca7-36f1939d512a",
+              "name": "Name data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Name",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"role\": \"string\",\n  \"image\": \"https://RbVIhqqTriNzSgYJzdFRrnYzldp.motgLIohw\",\n  \"summary\": \"string\",\n  \"birthDate\": \"string\",\n  \"deathDate\": \"string\",\n  \"awards\": \"string\",\n  \"height\": \"string\",\n  \"knownFor\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"http://vjJnXTvayvJXhdR.iyfseoq75cokHtehmwsEhdL8bEr9SCOlZ4-43p1ZQDXZhe3IjEZepwCztzPZny6PQ-QnZKeK.CINZB+NkHxa77\",\n      \"imDbRating\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"https://WodhbyBOZxNxqpmzPGfwqN.cyU7gvS1c.DjxNPwufFyOvbKz1\",\n      \"imDbRating\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "866e6386-e453-40f8-bf58-c7e4ff376305",
+          "name": "Get Person Awards",
+          "request": {
+            "name": "Get Person Awards",
+            "description": {
+              "content": "Retrieve awards for a person by IMDb name id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "NameAwards",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b997890-1422-42f6-a75d-57a42266ea47",
+              "name": "Name award data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "NameAwards",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"eventName\": \"string\",\n      \"eventYear\": \"string\"\n    },\n    {\n      \"eventName\": \"string\",\n      \"eventYear\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tv-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "96cffcd9-146e-4475-baf0-05b249f60de5",
+    "name": "IMDb-API (TV-API) External Name API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community web service (operated under the IMDb-API / TV-API brand) for receiving\nmovie, TV series and cast information in JSON. Aggregates data from IMDb,\nTheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and\nYouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an\nofficial IMDb / Amazon product.\n\n\nContact Support:\n Name: IMDb-API",
+      "type": "text/plain"
+    }
+  }
+}

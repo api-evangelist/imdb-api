@@ -1,0 +1,1208 @@
+{
+  "item": [
+    {
+      "id": "39eabb80-20f7-46d2-b4ce-9c32547c5361",
+      "name": "Title",
+      "description": {
+        "content": "Movie and series metadata, posters, images, trailers, cast, ratings.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5d599ebd-dc61-4cc2-8859-85fb749e73b9",
+          "name": "Get Title",
+          "request": {
+            "name": "Get Title",
+            "description": {
+              "content": "Retrieve movie or series metadata by IMDb id (tt-format).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Title",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc86bf6a-8b30-4a66-b650-0a397882cb24",
+              "name": "Title data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Title",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"originalTitle\": \"string\",\n  \"fullTitle\": \"string\",\n  \"type\": \"string\",\n  \"year\": \"string\",\n  \"image\": \"https://WSpVJeMsPtxGSVweEB.nshum\",\n  \"releaseDate\": \"string\",\n  \"runtimeMins\": \"string\",\n  \"runtimeStr\": \"string\",\n  \"plot\": \"string\",\n  \"plotLocal\": \"string\",\n  \"awards\": \"string\",\n  \"directors\": \"string\",\n  \"directorList\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"writers\": \"string\",\n  \"writerList\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"stars\": \"string\",\n  \"starList\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"actorList\": [\n    {\n      \"id\": \"string\",\n      \"image\": \"http://jTgTWJjaCbR.hxieduT4cHxKQdRA,yECEmSvbwuNVy1wi+B6AfNzQKF1xAz\",\n      \"name\": \"string\",\n      \"asCharacter\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"image\": \"https://UXaoPYQJr.fhmgmjTYpoZvjs0a31D83NwcMBOd\",\n      \"name\": \"string\",\n      \"asCharacter\": \"string\"\n    }\n  ],\n  \"genres\": \"string\",\n  \"companies\": \"string\",\n  \"countries\": \"string\",\n  \"languages\": \"string\",\n  \"contentRating\": \"string\",\n  \"imDbRating\": \"string\",\n  \"imDbRatingVotes\": \"string\",\n  \"metacriticRating\": \"string\",\n  \"ratings\": {\n    \"imDbId\": \"string\",\n    \"title\": \"string\",\n    \"fullTitle\": \"string\",\n    \"type\": \"string\",\n    \"year\": \"string\",\n    \"imDb\": \"string\",\n    \"metacritic\": \"string\",\n    \"theMovieDb\": \"string\",\n    \"rottenTomatoes\": \"string\",\n    \"filmAffinity\": \"string\",\n    \"errorMessage\": \"string\"\n  },\n  \"wikipedia\": {\n    \"imDbId\": \"string\",\n    \"title\": \"string\",\n    \"url\": \"http://vrJAvSUxjnLuMJjjtcNQbFgdjHlAhRvj.ufxmb6tFyKdADG3ijIKQx\",\n    \"language\": \"string\",\n    \"plotShort\": {\n      \"plainText\": \"string\",\n      \"html\": \"string\"\n    },\n    \"plotFull\": {\n      \"plainText\": \"string\",\n      \"html\": \"string\"\n    },\n    \"errorMessage\": \"string\"\n  },\n  \"posters\": {\n    \"imDbId\": \"string\",\n    \"title\": \"string\",\n    \"posters\": [\n      {\n        \"id\": \"string\",\n        \"link\": \"https://DVrtVRNUGZwqXsvrrTFksS.tqmrMF.uySVz3Tg.1hI41m2p\",\n        \"aspectRatio\": 7996.712461955262,\n        \"language\": \"string\",\n        \"width\": 5373,\n        \"height\": 8125\n      },\n      {\n        \"id\": \"string\",\n        \"link\": \"http://GsNKefoLaOFvNbqc.bddNlAUapO\",\n        \"aspectRatio\": 7675.676278698886,\n        \"language\": \"string\",\n        \"width\": 3086,\n        \"height\": 256\n      }\n    ],\n    \"errorMessage\": \"string\"\n  },\n  \"images\": {\n    \"imDbId\": \"string\",\n    \"title\": \"string\",\n    \"items\": [\n      {\n        \"title\": \"string\",\n        \"image\": \"http://MIt.lbXKEn8BFWkv.FyqtZX6VKJxmgXk1VJ5dTnkpgPSQBO5Z6UvpO2uhuxeOoWw-rUta,ddo\"\n      },\n      {\n        \"title\": \"string\",\n        \"image\": \"http://TcBWVEEVOmSjdfNZmhRXZ.cydtvzs78QzuECxpXQXLzzXZmSxfq0zj7gBagx8Vb\"\n      }\n    ],\n    \"errorMessage\": \"string\"\n  },\n  \"trailer\": {\n    \"imDbId\": \"string\",\n    \"title\": \"string\",\n    \"thumbnailUrl\": \"http://rnmWDCzcMivbUpXWugyVWTzwcbpjOzP.ckyeBjTRNTC0-yyipREkdLXFJdAkFwrvVM1N0p9HND06IEZlQwJhSWP.WA+jzz\",\n    \"link\": \"http://jpzNZhH.etmgwf6UqOei+vQSKWpnTcQtvWVJGNpT8TCkVwXPkRJKFo+WuH7Gm5TFJH62Y\",\n    \"linkEmbed\": \"http://pDFZDIUzKcdZNFDgvcYoSiaGuJ.ljgccTfs-mfUl,UQeRL,Sn-ivrmvhizpnqoZMGMs-60s.V95JcXvRTDJCxv\",\n    \"errorMessage\": \"string\"\n  },\n  \"boxOffice\": {\n    \"budget\": \"string\",\n    \"openingWeekendUSA\": \"string\",\n    \"grossUSA\": \"string\",\n    \"cumulativeWorldwideGross\": \"string\"\n  },\n  \"tagline\": \"string\",\n  \"keywords\": \"string\",\n  \"keywordList\": [\n    \"string\",\n    \"string\"\n  ],\n  \"similars\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"https://zdCZgQ.crchVXxirTwmI-3+l4ZdC4zWoEvoeil,WKbsoPBNWd7QWsSJ12qpAS5kkYVCm77.A\",\n      \"imDbRating\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"https://FEJfHJRcUVWwU.pvU,V4QI3pU2qHGfLqwYg7G9TqBHUmrpJCcC254z\",\n      \"imDbRating\": \"string\"\n    }\n  ],\n  \"tvSeriesInfo\": {\n    \"yearEnd\": \"string\",\n    \"creators\": \"string\",\n    \"creatorList\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"seasons\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"tvEpisodeInfo\": {\n    \"seriesId\": \"string\",\n    \"seriesTitle\": \"string\",\n    \"seriesFullTitle\": \"string\",\n    \"seriesYear\": \"string\",\n    \"seasonNumber\": \"string\",\n    \"episodeNumber\": \"string\",\n    \"previousEpisodeId\": \"string\",\n    \"nextEpisodeId\": \"string\"\n  },\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1eb10a9-ea0e-431f-b571-c683c9bd039f",
+          "name": "Get Full Cast And Crew",
+          "request": {
+            "name": "Get Full Cast And Crew",
+            "description": {
+              "content": "Retrieve complete cast and crew for a title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "FullCast",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25839ab3-b56e-487e-94c4-2df84de9d651",
+              "name": "Full cast data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "FullCast",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"directors\": {},\n  \"writers\": {},\n  \"actors\": [\n    {\n      \"id\": \"string\",\n      \"image\": \"https://ybhdtHBqwYjpYuMs.imknPkfaAiEJCG,Ec,PI-gRXDgpcxxjSla5pu6\",\n      \"name\": \"string\",\n      \"asCharacter\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"image\": \"http://TIkftYmjCDCzoshttxYJABPVr.qoo0bCHGa.-QbmVu\",\n      \"name\": \"string\",\n      \"asCharacter\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e433a19a-73af-457f-811f-74ff4b934485",
+          "name": "Get Posters",
+          "request": {
+            "name": "Get Posters",
+            "description": {
+              "content": "Retrieve poster and backdrop images for a title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Posters",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b6f313d-8ea4-4323-8aa8-9f4c66a4723d",
+              "name": "Poster data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Posters",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"posters\": [\n    {\n      \"id\": \"string\",\n      \"link\": \"http://IFlbxdSDrrOZfVkHdhnoPhbNYXcDuSFib.fdKJNHs3a6f2FxUNxl8.BJqClWhNYse2alfdbiVIM4krBVB6Q1JMSmdqfj\",\n      \"aspectRatio\": 6952.637013576867,\n      \"language\": \"string\",\n      \"width\": 382,\n      \"height\": 9983\n    },\n    {\n      \"id\": \"string\",\n      \"link\": \"https://XsqfXCsVGXtozyXoQdeXoOnc.ougbiqqT+bvUrEL1WoWtPjAyMdBV38emRVO2aIv0BzBYdlHqhYTnIH\",\n      \"aspectRatio\": 4010.077913144361,\n      \"language\": \"string\",\n      \"width\": 8094,\n      \"height\": 168\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e43c0df-1980-42c4-8d69-2e0440493c41",
+          "name": "Get Images",
+          "request": {
+            "name": "Get Images",
+            "description": {
+              "content": "Retrieve a paged set of images for a title or person.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Images",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title (tt-format) or name (nm-format) id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17f07e9f-93b6-42e8-9996-c834474b1efc",
+              "name": "Image data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Images",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title (tt-format) or name (nm-format) id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"items\": [\n    {\n      \"title\": \"string\",\n      \"image\": \"http://dLYkLw.iyoClzvC+G0ShSW9s.CcKR9AvxG7x,yWoiT0DQV5v2\"\n    },\n    {\n      \"title\": \"string\",\n      \"image\": \"http://WmMCOam.tngfqS5fAaRsDXQZv6mSZuVIslyAWd-vZZ.0xDwX9FXom33uLhf-XeeCNqMeTHUXHqqBv.sm5zI\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c025685-2e1c-4644-acc2-c95655dbd40b",
+          "name": "Get Trailer",
+          "request": {
+            "name": "Get Trailer",
+            "description": {
+              "content": "Retrieve the trailer for a title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Trailer",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72c4e85d-851c-432c-b9e4-c3433f323f1f",
+              "name": "Trailer data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Trailer",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"thumbnailUrl\": \"https://SiTFUbRGYeFPjpbSPx.khAtrLNEoAdJRE-z8H9DvjtIEpOcW.gA8RJQ9u7VABqLjreHfv.5wJZ0-\",\n  \"link\": \"https://ApLUdUqjWWYteLSfNWPeJxkxuhoBVI.obuU,.XysBnG+fPqPGuVHQ+y5nUqUcADG\",\n  \"linkEmbed\": \"https://ukXJQPoHJHyrLsFAmLJmfiT.aemgZT3DxZ34j.EwyYsbNyeX3d.tS3L.NV0A2j.YhyJ4pzvR,93m,ZhOUo7ob6JuBM0DOfT\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "782ba710-d50f-4b02-bcda-1774b847fbee",
+          "name": "Get YouTube Trailer",
+          "request": {
+            "name": "Get YouTube Trailer",
+            "description": {
+              "content": "Retrieve the YouTube trailer URL for a title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "YouTubeTrailer",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "837a4d28-7a90-42ba-8c7b-66cdc7fd330f",
+              "name": "YouTube trailer data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "YouTubeTrailer",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"videoId\": \"string\",\n  \"videoUrl\": \"https://SAbaPhVAXxiQiiRJmbMkztNEVPHWiFD.jnUsXyUHRq3k-TghmufXONJMa3A9mkgtQU5tku1EV\",\n  \"videoTitle\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "746039b7-1847-4e5d-9b95-2f73e2069d2d",
+          "name": "Get Ratings",
+          "request": {
+            "name": "Get Ratings",
+            "description": {
+              "content": "Retrieve ratings from IMDb, Metacritic, Rotten Tomatoes, TMDB and FilmAffinity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Ratings",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5d220e4e-f10d-49c9-9b76-631996a48e49",
+              "name": "Ratings data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Ratings",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"fullTitle\": \"string\",\n  \"type\": \"string\",\n  \"year\": \"string\",\n  \"imDb\": \"string\",\n  \"metacritic\": \"string\",\n  \"theMovieDb\": \"string\",\n  \"rottenTomatoes\": \"string\",\n  \"filmAffinity\": \"string\",\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fbeeaaf-781f-4923-b31e-ce3cabb3d47f",
+          "name": "Get User Ratings",
+          "request": {
+            "name": "Get User Ratings",
+            "description": {
+              "content": "Retrieve user vote distribution for a title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "UserRatings",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93400197-df2f-4bf5-bd70-b3af1430424d",
+              "name": "User ratings data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "UserRatings",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"totalRating\": \"string\",\n  \"totalRatingVotes\": \"string\",\n  \"ratings\": [\n    {\n      \"rating\": \"string\",\n      \"percent\": \"string\",\n      \"votes\": \"string\"\n    },\n    {\n      \"rating\": \"string\",\n      \"percent\": \"string\",\n      \"votes\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c0a5b6a-6218-442d-a51d-7639f2a6b35e",
+          "name": "Get Season Episodes",
+          "request": {
+            "name": "Get Season Episodes",
+            "description": {
+              "content": "List episodes for a given series season.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "SeasonEpisodes",
+                ":apiKey",
+                ":id",
+                ":seasonNumber"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "seasonNumber",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "605681c9-ff5f-407a-9fab-da28d2a90229",
+              "name": "Season episode data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "SeasonEpisodes",
+                    ":apiKey",
+                    ":id",
+                    ":seasonNumber"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "seasonNumber",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"episodes\": [\n    {\n      \"id\": \"string\",\n      \"seasonNumber\": \"string\",\n      \"episodeNumber\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"http://verMFLbeEkqUQpZVkBbevdarZicCijM.ecxaGkLrX.zT6pd1Ar0\",\n      \"year\": \"string\",\n      \"released\": \"string\",\n      \"plot\": \"string\",\n      \"imDbRating\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"seasonNumber\": \"string\",\n      \"episodeNumber\": \"string\",\n      \"title\": \"string\",\n      \"image\": \"https://eYSkCui.wbyPgeOpX.IDLlAYw\",\n      \"year\": \"string\",\n      \"released\": \"string\",\n      \"plot\": \"string\",\n      \"imDbRating\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tv-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5ee51b3b-5412-407f-8148-eb0c9acfbe51",
+    "name": "IMDb-API (TV-API) External Title API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community web service (operated under the IMDb-API / TV-API brand) for receiving\nmovie, TV series and cast information in JSON. Aggregates data from IMDb,\nTheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and\nYouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an\nofficial IMDb / Amazon product.\n\n\nContact Support:\n Name: IMDb-API",
+      "type": "text/plain"
+    }
+  }
+}

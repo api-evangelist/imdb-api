@@ -1,0 +1,310 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IMDb-API (TV-API) External Title API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Title",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Title",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/Title/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "IMDb title id in tt-format (e.g. tt1375666)."
+              }
+            ]
+          },
+          "docs": "Retrieve movie or series metadata by IMDb id (tt-format)."
+        },
+        {
+          "info": {
+            "name": "Get Full Cast And Crew",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/FullCast/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "IMDb title id in tt-format (e.g. tt1375666)."
+              }
+            ]
+          },
+          "docs": "Retrieve complete cast and crew for a title."
+        },
+        {
+          "info": {
+            "name": "Get Posters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/Posters/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "IMDb title id in tt-format (e.g. tt1375666)."
+              }
+            ]
+          },
+          "docs": "Retrieve poster and backdrop images for a title."
+        },
+        {
+          "info": {
+            "name": "Get Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/Images/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "IMDb title (tt-format) or name (nm-format) id."
+              }
+            ]
+          },
+          "docs": "Retrieve a paged set of images for a title or person."
+        },
+        {
+          "info": {
+            "name": "Get Trailer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/Trailer/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "IMDb title id in tt-format (e.g. tt1375666)."
+              }
+            ]
+          },
+          "docs": "Retrieve the trailer for a title."
+        },
+        {
+          "info": {
+            "name": "Get YouTube Trailer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/YouTubeTrailer/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "IMDb title id in tt-format (e.g. tt1375666)."
+              }
+            ]
+          },
+          "docs": "Retrieve the YouTube trailer URL for a title."
+        },
+        {
+          "info": {
+            "name": "Get Ratings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/Ratings/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "IMDb title id in tt-format (e.g. tt1375666)."
+              }
+            ]
+          },
+          "docs": "Retrieve ratings from IMDb, Metacritic, Rotten Tomatoes, TMDB and FilmAffinity."
+        },
+        {
+          "info": {
+            "name": "Get User Ratings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/UserRatings/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "IMDb title id in tt-format (e.g. tt1375666)."
+              }
+            ]
+          },
+          "docs": "Retrieve user vote distribution for a title."
+        },
+        {
+          "info": {
+            "name": "Get Season Episodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/SeasonEpisodes/:apiKey/:id/:seasonNumber",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "IMDb title id in tt-format (e.g. tt1375666)."
+              },
+              {
+                "name": "seasonNumber",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List episodes for a given series season."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

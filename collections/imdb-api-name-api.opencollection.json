@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IMDb-API (TV-API) External Name API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Name",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Person",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/Name/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve actor, director or writer information by IMDb name id (nm-format)."
+        },
+        {
+          "info": {
+            "name": "Get Person Awards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/:lang/API/NameAwards/:apiKey/:id",
+            "params": [
+              {
+                "name": "lang",
+                "value": "",
+                "type": "path",
+                "description": "Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve awards for a person by IMDb name id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

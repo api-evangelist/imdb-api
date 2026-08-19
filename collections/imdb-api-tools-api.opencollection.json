@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "IMDb-API (TV-API) External Tools API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get API Usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/API/Usage/:apiKey",
+            "params": [
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "path",
+                "description": "Account API key."
+              }
+            ]
+          },
+          "docs": "Retrieve current account usage and quota consumption."
+        },
+        {
+          "info": {
+            "name": "Resize Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/API/ResizeImage",
+            "params": [
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Format WxH (e.g. 320x240)"
+              },
+              {
+                "name": "url",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Resize an arbitrary image URL to the requested dimensions."
+        },
+        {
+          "info": {
+            "name": "Resize Poster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://tv-api.com/API/ResizePoster",
+            "params": [
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "url",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Resize a poster or backdrop URL using preset width tokens (w45-w1280, s32-s470)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

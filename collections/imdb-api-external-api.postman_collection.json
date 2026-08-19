@@ -1,0 +1,938 @@
+{
+  "item": [
+    {
+      "id": "2eb56f73-37c7-4183-a78e-15cbca85ad51",
+      "name": "External",
+      "description": {
+        "content": "Wikipedia, external sites, reviews, FAQ and other ancillary data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e90bf2e-ebc3-4c97-935f-1f8391eacb4d",
+          "name": "Get Wikipedia Plot",
+          "request": {
+            "name": "Get Wikipedia Plot",
+            "description": {
+              "content": "Retrieve Wikipedia plot summary (PlainText and Html).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Wikipedia",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5c54905-6fc2-4ab3-a807-7cda4426d4b1",
+              "name": "Wikipedia data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Wikipedia",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"url\": \"http://lRVPxPuUaTYGBLhz.kdYFfp0x8TlQ+,apLSyVigAtpmf0k5kxmPChmdy4zTSspseV\",\n  \"language\": \"string\",\n  \"plotShort\": {\n    \"plainText\": \"string\",\n    \"html\": \"string\"\n  },\n  \"plotFull\": {\n    \"plainText\": \"string\",\n    \"html\": \"string\"\n  },\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c27dceb3-1bc6-4d92-8a26-73aab2b20c6a",
+          "name": "Get External Sites",
+          "request": {
+            "name": "Get External Sites",
+            "description": {
+              "content": "Retrieve cross-platform identifiers and URLs for a title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "ExternalSites",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6660490c-5429-4fec-a1c9-bec59ed41a44",
+              "name": "External site data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "ExternalSites",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"items\": [\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"url\": \"http://GBVnfNMYgZjwUxAyaxPAjdLZQYI.zbmhlj\"\n    },\n    {\n      \"name\": \"string\",\n      \"id\": \"string\",\n      \"url\": \"https://wkDbeiRGeIxsYvNAFydeFaxiTX.ilkzxKXhLapQXTsoAfZUvOmppRw,kNKAY7SWeQXI9CeQHb4XRgKf32C0VsolkOX\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4db055c6-0061-4ce1-9ad2-034a8e4e27f4",
+          "name": "Get User Reviews",
+          "request": {
+            "name": "Get User Reviews",
+            "description": {
+              "content": "Retrieve user reviews for a title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Reviews",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "41977dc5-51e8-4cd4-b692-2f5c25dda6c5",
+              "name": "Review data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Reviews",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"items\": [\n    {\n      \"username\": \"string\",\n      \"userUrl\": \"http://RLEenLDOoLdqCdEaLXTeFdpMc.onqazccoCFOXggXGJI4-iJP\",\n      \"reviewLink\": \"https://SXcGtIzDh.gprN-Nqi0q-Wag-Nj+vy+CUBJ.5Rspjgic4QY,AqJr8BSPM1bANIogPeNIur,+UY\",\n      \"warningSpoilers\": true,\n      \"date\": \"string\",\n      \"rate\": \"string\",\n      \"helpful\": \"string\",\n      \"title\": \"string\",\n      \"content\": \"string\"\n    },\n    {\n      \"username\": \"string\",\n      \"userUrl\": \"https://YhS.tizmJwbPqieu7-fTk,wQ4TKbzPSB-GtINrrK7Wgo0\",\n      \"reviewLink\": \"http://DlPP.jummW5Qs.L1SJ7DabXSj7xE+VGcGG69v,z\",\n      \"warningSpoilers\": true,\n      \"date\": \"string\",\n      \"rate\": \"string\",\n      \"helpful\": \"string\",\n      \"title\": \"string\",\n      \"content\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74cf45e4-6224-4b5b-95d9-282d1638ae05",
+          "name": "Get Metacritic Reviews",
+          "request": {
+            "name": "Get Metacritic Reviews",
+            "description": {
+              "content": "Retrieve Metacritic critic reviews for a title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "MetacriticReviews",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a109074b-b43e-4a21-af93-3ddf4e7ae994",
+              "name": "Metacritic review data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "MetacriticReviews",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"items\": [\n    {\n      \"username\": \"string\",\n      \"date\": \"string\",\n      \"rate\": \"string\",\n      \"title\": \"string\",\n      \"content\": \"string\"\n    },\n    {\n      \"username\": \"string\",\n      \"date\": \"string\",\n      \"rate\": \"string\",\n      \"title\": \"string\",\n      \"content\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3872852c-7a29-4ba3-aa9b-f875ddc066b3",
+          "name": "Get FAQ",
+          "request": {
+            "name": "Get FAQ",
+            "description": {
+              "content": "Retrieve frequently asked questions for a title.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "FAQ",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de9d8867-f181-4283-a611-4f03e818f88f",
+              "name": "FAQ data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "FAQ",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) IMDb title id in tt-format (e.g. tt1375666)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"imDbId\": \"string\",\n  \"title\": \"string\",\n  \"items\": [\n    {\n      \"question\": \"string\",\n      \"answer\": \"string\"\n    },\n    {\n      \"question\": \"string\",\n      \"answer\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33c9b193-27fa-439d-b4d6-83f928b261ae",
+          "name": "Get Company",
+          "request": {
+            "name": "Get Company",
+            "description": {
+              "content": "Retrieve production company information and titles by IMDb company id (co-format).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Company",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9bd84784-eb07-4ca7-af8a-be3cc3f7119a",
+              "name": "Company data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Company",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"http://lkFpVKmdiHOdVGDkLeJchLuSPHtAJIPSn.wwCCjKUHtobfW7Rf99atPProtUUU\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://SKnVgcIC.djzxVH-n0Xva6I8oSWlRK0btUyNXYCv7iHCX9QHJizkrwx\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d768fb8-6423-4590-8e85-01f592c8bc79",
+          "name": "Get Keyword",
+          "request": {
+            "name": "Get Keyword",
+            "description": {
+              "content": "Retrieve titles related to a keyword.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":lang",
+                "API",
+                "Keyword",
+                ":apiKey",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "en",
+                  "key": "lang",
+                  "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "apiKey",
+                  "description": "(Required) Account API key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85d4e278-26be-4fbd-ac62-b9d3ff180ac0",
+              "name": "Keyword data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":lang",
+                    "API",
+                    "Keyword",
+                    ":apiKey",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "apiKey",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "en",
+                      "key": "lang",
+                      "description": "(Required) Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "apiKey",
+                      "description": "(Required) Account API key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"http://lkFpVKmdiHOdVGDkLeJchLuSPHtAJIPSn.wwCCjKUHtobfW7Rf99atPProtUUU\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"resultType\": \"string\",\n      \"image\": \"https://SKnVgcIC.djzxVH-n0Xva6I8oSWlRK0btUyNXYCv7iHCX9QHJizkrwx\",\n      \"title\": \"string\",\n      \"description\": \"string\"\n    }\n  ],\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://tv-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "554e8b82-e52b-4c28-8ee8-80908148d4a3",
+    "name": "IMDb-API (TV-API) External API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community web service (operated under the IMDb-API / TV-API brand) for receiving\nmovie, TV series and cast information in JSON. Aggregates data from IMDb,\nTheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and\nYouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an\nofficial IMDb / Amazon product.\n\n\nContact Support:\n Name: IMDb-API",
+      "type": "text/plain"
+    }
+  }
+}
