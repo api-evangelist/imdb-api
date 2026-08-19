@@ -23,7 +23,7 @@ accessModel:
 image: https://tv-api.com/images/original/Apple-TV-Plus-Logo.png
 humanURL: https://tv-api.com/
 baseURL: https://tv-api.com/
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-05-28'
 modified: '2026-05-30'
 x-source: public-apis/public-apis
