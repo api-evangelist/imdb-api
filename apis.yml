@@ -98,6 +98,8 @@ apis:
   humanURL: https://tv-api.com/
   baseURL: https://tv-api.com/
   tags:
+  - List
+  tags_raw:
   - Lists
   properties:
   - type: OpenAPI
