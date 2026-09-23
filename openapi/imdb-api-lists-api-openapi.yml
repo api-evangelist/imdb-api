@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: IMDb-API (TV-API) External Lists API
+  title: IMDb-API (TV-API) Lists API
   description: 'Community web service (operated under the IMDb-API / TV-API brand) for receiving
 
     movie, TV series and cast information in JSON. Aggregates data from IMDb,
@@ -9,9 +9,7 @@ info:
 
     YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an
 
-    official IMDb / Amazon product.
-
-    '
+    official IMDb / Amazon product.'
   version: 1.0.0
   contact:
     name: IMDb-API
@@ -191,19 +189,30 @@ paths:
                 $ref: '#/components/schemas/BoxOfficeAllTimeData'
 components:
   schemas:
-    SearchResult:
+    BoxOfficeWeekendData:
       type: object
       properties:
-        id:
-          type: string
-        resultType:
-          type: string
-        image:
-          type: string
-          format: uri
-        title:
-          type: string
-        description:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              title:
+                type: string
+              weekend:
+                type: string
+              gross:
+                type: string
+              weeks:
+                type: string
+              image:
+                type: string
+                format: uri
+        errorMessage:
           type: string
     Top250Data:
       type: object
@@ -258,6 +267,54 @@ components:
                 type: string
         errorMessage:
           type: string
+    MostPopularData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              rankUpDown:
+                type: string
+              title:
+                type: string
+              fullTitle:
+                type: string
+              year:
+                type: string
+              image:
+                type: string
+                format: uri
+              crew:
+                type: string
+              imDbRating:
+                type: string
+              imDbRatingCount:
+                type: string
+        errorMessage:
+          type: string
+    IMDbListData:
+      type: object
+      properties:
+        listId:
+          type: string
+        title:
+          type: string
+        listType:
+          type: string
+        author:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
+          type: string
     NewMovieData:
       type: object
       properties:
@@ -291,80 +348,28 @@ components:
                 type: string
         errorMessage:
           type: string
-    IMDbListData:
+    SearchResult:
       type: object
       properties:
-        listId:
+        id:
           type: string
+        resultType:
+          type: string
+        image:
+          type: string
+          format: uri
         title:
           type: string
-        listType:
-          type: string
-        author:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchResult'
-        errorMessage:
-          type: string
-    MostPopularData:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              rank:
-                type: string
-              rankUpDown:
-                type: string
-              title:
-                type: string
-              fullTitle:
-                type: string
-              year:
-                type: string
-              image:
-                type: string
-                format: uri
-              crew:
-                type: string
-              imDbRating:
-                type: string
-              imDbRatingCount:
-                type: string
-        errorMessage:
-          type: string
-    BoxOfficeWeekendData:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              rank:
-                type: string
-              title:
-                type: string
-              weekend:
-                type: string
-              gross:
-                type: string
-              weeks:
-                type: string
-              image:
-                type: string
-                format: uri
-        errorMessage:
+        description:
           type: string
   parameters:
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
     Lang:
       name: lang
       in: path
@@ -373,13 +378,6 @@ components:
       schema:
         type: string
         default: en
-    ApiKey:
-      name: apiKey
-      in: path
-      required: true
-      description: Account API key.
-      schema:
-        type: string
   securitySchemes:
     ApiKeyInPath:
       type: apiKey

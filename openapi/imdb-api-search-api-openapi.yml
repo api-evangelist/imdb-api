@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: IMDb-API (TV-API) External Search API
+  title: IMDb-API (TV-API) Search API
   description: 'Community web service (operated under the IMDb-API / TV-API brand) for receiving
 
     movie, TV series and cast information in JSON. Aggregates data from IMDb,
@@ -9,9 +9,7 @@ info:
 
     YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an
 
-    official IMDb / Amazon product.
-
-    '
+    official IMDb / Amazon product.'
   version: 1.0.0
   contact:
     name: IMDb-API
@@ -190,6 +188,19 @@ components:
             $ref: '#/components/schemas/SearchResult'
         errorMessage:
           type: string
+    SearchData:
+      type: object
+      properties:
+        searchType:
+          type: string
+        expression:
+          type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
+          type: string
     SearchResult:
       type: object
       properties:
@@ -204,20 +215,21 @@ components:
           type: string
         description:
           type: string
-    SearchData:
-      type: object
-      properties:
-        searchType:
-          type: string
-        expression:
-          type: string
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchResult'
-        errorMessage:
-          type: string
   parameters:
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
+    Expression:
+      name: expression
+      in: path
+      required: true
+      description: URL-encoded search expression.
+      schema:
+        type: string
     Lang:
       name: lang
       in: path
@@ -226,20 +238,6 @@ components:
       schema:
         type: string
         default: en
-    Expression:
-      name: expression
-      in: path
-      required: true
-      description: URL-encoded search expression.
-      schema:
-        type: string
-    ApiKey:
-      name: apiKey
-      in: path
-      required: true
-      description: Account API key.
-      schema:
-        type: string
   securitySchemes:
     ApiKeyInPath:
       type: apiKey

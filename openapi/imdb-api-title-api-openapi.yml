@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: IMDb-API (TV-API) External Title API
+  title: IMDb-API (TV-API) Title API
   description: 'Community web service (operated under the IMDb-API / TV-API brand) for receiving
 
     movie, TV series and cast information in JSON. Aggregates data from IMDb,
@@ -9,9 +9,7 @@ info:
 
     YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Not an
 
-    official IMDb / Amazon product.
-
-    '
+    official IMDb / Amazon product.'
   version: 1.0.0
   contact:
     name: IMDb-API
@@ -199,36 +197,6 @@ paths:
                 $ref: '#/components/schemas/SeasonEpisodeData'
 components:
   schemas:
-    SimilarShort:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        image:
-          type: string
-          format: uri
-        imDbRating:
-          type: string
-    TrailerData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        thumbnailUrl:
-          type: string
-          format: uri
-        link:
-          type: string
-          format: uri
-        linkEmbed:
-          type: string
-          format: uri
-        errorMessage:
-          type: string
     RatingData:
       type: object
       properties:
@@ -254,133 +222,16 @@ components:
           type: string
         errorMessage:
           type: string
-    PosterData:
+    BoxOfficeShort:
       type: object
       properties:
-        imDbId:
+        budget:
           type: string
-        title:
+        openingWeekendUSA:
           type: string
-        posters:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              link:
-                type: string
-                format: uri
-              aspectRatio:
-                type: number
-              language:
-                type: string
-              width:
-                type: integer
-              height:
-                type: integer
-        backdrops:
-          type: array
-          items:
-            type: object
-        errorMessage:
+        grossUSA:
           type: string
-    WikipediaData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        url:
-          type: string
-          format: uri
-        language:
-          type: string
-        plotShort:
-          type: object
-          properties:
-            plainText:
-              type: string
-            html:
-              type: string
-        plotFull:
-          type: object
-          properties:
-            plainText:
-              type: string
-            html:
-              type: string
-        errorMessage:
-          type: string
-    TvSeriesInfo:
-      type: object
-      properties:
-        yearEnd:
-          type: string
-        creators:
-          type: string
-        creatorList:
-          type: array
-          items:
-            $ref: '#/components/schemas/StarShort'
-        seasons:
-          type: array
-          items:
-            type: string
-    FullCastData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        directors:
-          type: object
-        writers:
-          type: object
-        actors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ActorShort'
-        others:
-          type: array
-        errorMessage:
-          type: string
-    YouTubeTrailerData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        videoId:
-          type: string
-        videoUrl:
-          type: string
-          format: uri
-        videoTitle:
-          type: string
-        errorMessage:
-          type: string
-    ImageData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              title:
-                type: string
-              image:
-                type: string
-                format: uri
-        errorMessage:
+        cumulativeWorldwideGross:
           type: string
     TitleData:
       type: object
@@ -480,17 +331,6 @@ components:
           $ref: '#/components/schemas/TvEpisodeInfo'
         errorMessage:
           type: string
-    BoxOfficeShort:
-      type: object
-      properties:
-        budget:
-          type: string
-        openingWeekendUSA:
-          type: string
-        grossUSA:
-          type: string
-        cumulativeWorldwideGross:
-          type: string
     SeasonEpisodeData:
       type: object
       properties:
@@ -524,6 +364,137 @@ components:
                 type: string
         errorMessage:
           type: string
+    ImageData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              image:
+                type: string
+                format: uri
+        errorMessage:
+          type: string
+    TvSeriesInfo:
+      type: object
+      properties:
+        yearEnd:
+          type: string
+        creators:
+          type: string
+        creatorList:
+          type: array
+          items:
+            $ref: '#/components/schemas/StarShort'
+        seasons:
+          type: array
+          items:
+            type: string
+    FullCastData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        directors:
+          type: object
+        writers:
+          type: object
+        actors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActorShort'
+        others:
+          type: array
+        errorMessage:
+          type: string
+    StarShort:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    PosterData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        posters:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              link:
+                type: string
+                format: uri
+              aspectRatio:
+                type: number
+              language:
+                type: string
+              width:
+                type: integer
+              height:
+                type: integer
+        backdrops:
+          type: array
+          items:
+            type: object
+        errorMessage:
+          type: string
+    WikipediaData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
+        language:
+          type: string
+        plotShort:
+          type: object
+          properties:
+            plainText:
+              type: string
+            html:
+              type: string
+        plotFull:
+          type: object
+          properties:
+            plainText:
+              type: string
+            html:
+              type: string
+        errorMessage:
+          type: string
+    SimilarShort:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        image:
+          type: string
+          format: uri
+        imDbRating:
+          type: string
     ActorShort:
       type: object
       properties:
@@ -535,6 +506,41 @@ components:
         name:
           type: string
         asCharacter:
+          type: string
+    YouTubeTrailerData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        videoId:
+          type: string
+        videoUrl:
+          type: string
+          format: uri
+        videoTitle:
+          type: string
+        errorMessage:
+          type: string
+    TvEpisodeInfo:
+      type: object
+      properties:
+        seriesId:
+          type: string
+        seriesTitle:
+          type: string
+        seriesFullTitle:
+          type: string
+        seriesYear:
+          type: string
+        seasonNumber:
+          type: string
+        episodeNumber:
+          type: string
+        previousEpisodeId:
+          type: string
+        nextEpisodeId:
           type: string
     UserRatingData:
       type: object
@@ -560,48 +566,25 @@ components:
                 type: string
         errorMessage:
           type: string
-    TvEpisodeInfo:
+    TrailerData:
       type: object
       properties:
-        seriesId:
+        imDbId:
           type: string
-        seriesTitle:
+        title:
           type: string
-        seriesFullTitle:
+        thumbnailUrl:
           type: string
-        seriesYear:
+          format: uri
+        link:
           type: string
-        seasonNumber:
+          format: uri
+        linkEmbed:
           type: string
-        episodeNumber:
-          type: string
-        previousEpisodeId:
-          type: string
-        nextEpisodeId:
-          type: string
-    StarShort:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
+          format: uri
+        errorMessage:
           type: string
   parameters:
-    ApiKey:
-      name: apiKey
-      in: path
-      required: true
-      description: Account API key.
-      schema:
-        type: string
-    ImdbOrNameId:
-      name: id
-      in: path
-      required: true
-      description: IMDb title (tt-format) or name (nm-format) id.
-      schema:
-        type: string
-        pattern: ^(tt|nm)\\d+$
     Lang:
       name: lang
       in: path
@@ -618,6 +601,21 @@ components:
       schema:
         type: string
         pattern: ^tt\\d+$
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
+    ImdbOrNameId:
+      name: id
+      in: path
+      required: true
+      description: IMDb title (tt-format) or name (nm-format) id.
+      schema:
+        type: string
+        pattern: ^(tt|nm)\\d+$
   securitySchemes:
     ApiKeyInPath:
       type: apiKey
