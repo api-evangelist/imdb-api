@@ -75,19 +75,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/NameAwardData'
 components:
+  parameters:
+    Lang:
+      name: lang
+      in: path
+      required: true
+      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
+      schema:
+        type: string
+        default: en
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
   schemas:
-    SimilarShort:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        image:
-          type: string
-          format: uri
-        imDbRating:
-          type: string
     NameAwardData:
       type: object
       properties:
@@ -140,22 +144,18 @@ components:
             type: object
         errorMessage:
           type: string
-  parameters:
-    ApiKey:
-      name: apiKey
-      in: path
-      required: true
-      description: Account API key.
-      schema:
-        type: string
-    Lang:
-      name: lang
-      in: path
-      required: true
-      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
-      schema:
-        type: string
-        default: en
+    SimilarShort:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        image:
+          type: string
+          format: uri
+        imDbRating:
+          type: string
   securitySchemes:
     ApiKeyInPath:
       type: apiKey

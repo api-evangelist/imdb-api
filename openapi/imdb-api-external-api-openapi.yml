@@ -173,13 +173,6 @@ components:
       schema:
         type: string
         pattern: ^tt\\d+$
-    ApiKey:
-      name: apiKey
-      in: path
-      required: true
-      description: Account API key.
-      schema:
-        type: string
     Lang:
       name: lang
       in: path
@@ -188,21 +181,15 @@ components:
       schema:
         type: string
         default: en
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
   schemas:
-    KeywordData:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchResult'
-        errorMessage:
-          type: string
-    MetacriticReviewData:
+    ExternalSiteData:
       type: object
       properties:
         imDbId:
@@ -214,16 +201,13 @@ components:
           items:
             type: object
             properties:
-              username:
+              name:
                 type: string
-              date:
+              id:
                 type: string
-              rate:
+              url:
                 type: string
-              title:
-                type: string
-              content:
-                type: string
+                format: uri
         errorMessage:
           type: string
     ReviewData:
@@ -260,27 +244,6 @@ components:
                 type: string
         errorMessage:
           type: string
-    ExternalSiteData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              id:
-                type: string
-              url:
-                type: string
-                format: uri
-        errorMessage:
-          type: string
     FAQData:
       type: object
       properties:
@@ -299,6 +262,43 @@ components:
                 type: string
         errorMessage:
           type: string
+    MetacriticReviewData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              username:
+                type: string
+              date:
+                type: string
+              rate:
+                type: string
+              title:
+                type: string
+              content:
+                type: string
+        errorMessage:
+          type: string
+    CompanyData:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
+          type: string
     SearchResult:
       type: object
       properties:
@@ -313,7 +313,7 @@ components:
           type: string
         description:
           type: string
-    CompanyData:
+    KeywordData:
       type: object
       properties:
         id:

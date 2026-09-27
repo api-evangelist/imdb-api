@@ -8,17 +8,21 @@ description: >-
   a public API; community scrapers such as this one (alongside OMDb, TMDB and Apify's IMDb scraper) fill the gap.
 url: https://tv-api.com/
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - imdb-api/imdbapiclient
+    - imdb-api/imdbapilib
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -57,7 +61,7 @@ apis:
   name: IMDb-API External API
   description: Wikipedia, external sites, reviews, FAQ and other ancillary data.
   humanURL: https://tv-api.com/
-  baseURL: https://tv-api.com/
+  baseURL: https://imdb-api.com
   tags:
   - External
   properties:
@@ -110,7 +114,7 @@ apis:
   description: >-
     Curated and aggregated lists (Top 250, Most Popular, In Theaters, Coming Soon, Box Office).
   humanURL: https://tv-api.com/
-  baseURL: https://tv-api.com/
+  baseURL: https://imdb-api.com
   tags:
   - List
   tags_raw:
@@ -164,7 +168,7 @@ apis:
   name: IMDb-API Name API
   description: People (actors, directors, writers) information and awards.
   humanURL: https://tv-api.com/
-  baseURL: https://tv-api.com/
+  baseURL: https://imdb-api.com
   tags:
   - Name
   properties:
@@ -216,7 +220,7 @@ apis:
   name: IMDb-API Search API
   description: Free-text and faceted search across titles, names, companies and keywords.
   humanURL: https://tv-api.com/
-  baseURL: https://tv-api.com/
+  baseURL: https://imdb-api.com
   tags:
   - Search
   properties:
@@ -268,7 +272,7 @@ apis:
   name: IMDb-API Title API
   description: Movie and series metadata, posters, images, trailers, cast, ratings.
   humanURL: https://tv-api.com/
-  baseURL: https://tv-api.com/
+  baseURL: https://imdb-api.com
   tags:
   - Title
   properties:
@@ -320,7 +324,7 @@ apis:
   name: IMDb-API Tools API
   description: Image utilities and account usage.
   humanURL: https://tv-api.com/
-  baseURL: https://tv-api.com/
+  baseURL: https://imdb-api.com
   tags:
   - Tools
   properties:
