@@ -189,58 +189,21 @@ paths:
                 $ref: '#/components/schemas/BoxOfficeAllTimeData'
 components:
   schemas:
-    BoxOfficeWeekendData:
+    IMDbListData:
       type: object
       properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              rank:
-                type: string
-              title:
-                type: string
-              weekend:
-                type: string
-              gross:
-                type: string
-              weeks:
-                type: string
-              image:
-                type: string
-                format: uri
-        errorMessage:
+        listId:
           type: string
-    Top250Data:
-      type: object
-      properties:
+        title:
+          type: string
+        listType:
+          type: string
+        author:
+          type: string
         items:
           type: array
           items:
-            type: object
-            properties:
-              id:
-                type: string
-              rank:
-                type: string
-              title:
-                type: string
-              fullTitle:
-                type: string
-              year:
-                type: string
-              image:
-                type: string
-                format: uri
-              crew:
-                type: string
-              imDbRating:
-                type: string
-              imDbRatingCount:
-                type: string
+            $ref: '#/components/schemas/SearchResult'
         errorMessage:
           type: string
     NewMovieData:
@@ -273,37 +236,6 @@ components:
               genres:
                 type: string
               stars:
-                type: string
-        errorMessage:
-          type: string
-    MostPopularData:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              rank:
-                type: string
-              rankUpDown:
-                type: string
-              title:
-                type: string
-              fullTitle:
-                type: string
-              year:
-                type: string
-              image:
-                type: string
-                format: uri
-              crew:
-                type: string
-              imDbRating:
-                type: string
-              imDbRatingCount:
                 type: string
         errorMessage:
           type: string
@@ -345,24 +277,99 @@ components:
           type: string
         description:
           type: string
-    IMDbListData:
+    MostPopularData:
       type: object
       properties:
-        listId:
-          type: string
-        title:
-          type: string
-        listType:
-          type: string
-        author:
-          type: string
         items:
           type: array
           items:
-            $ref: '#/components/schemas/SearchResult'
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              rankUpDown:
+                type: string
+              title:
+                type: string
+              fullTitle:
+                type: string
+              year:
+                type: string
+              image:
+                type: string
+                format: uri
+              crew:
+                type: string
+              imDbRating:
+                type: string
+              imDbRatingCount:
+                type: string
+        errorMessage:
+          type: string
+    Top250Data:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              title:
+                type: string
+              fullTitle:
+                type: string
+              year:
+                type: string
+              image:
+                type: string
+                format: uri
+              crew:
+                type: string
+              imDbRating:
+                type: string
+              imDbRatingCount:
+                type: string
+        errorMessage:
+          type: string
+    BoxOfficeWeekendData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              title:
+                type: string
+              weekend:
+                type: string
+              gross:
+                type: string
+              weeks:
+                type: string
+              image:
+                type: string
+                format: uri
         errorMessage:
           type: string
   parameters:
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
     Lang:
       name: lang
       in: path
@@ -371,13 +378,6 @@ components:
       schema:
         type: string
         default: en
-    ApiKey:
-      name: apiKey
-      in: path
-      required: true
-      description: Account API key.
-      schema:
-        type: string
   securitySchemes:
     ApiKeyInPath:
       type: apiKey
