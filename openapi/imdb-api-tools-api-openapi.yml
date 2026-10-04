@@ -100,6 +100,14 @@ paths:
         '200':
           description: Resized poster URL.
 components:
+  parameters:
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
   schemas:
     UsageData:
       type: object
@@ -110,14 +118,6 @@ components:
           type: integer
         errorMessage:
           type: string
-  parameters:
-    ApiKey:
-      name: apiKey
-      in: path
-      required: true
-      description: Account API key.
-      schema:
-        type: string
   securitySchemes:
     ApiKeyInPath:
       type: apiKey

@@ -165,17 +165,25 @@ paths:
                 $ref: '#/components/schemas/KeywordData'
 components:
   schemas:
-    KeywordData:
+    ExternalSiteData:
       type: object
       properties:
-        id:
+        imDbId:
           type: string
-        name:
+        title:
           type: string
         items:
           type: array
           items:
-            $ref: '#/components/schemas/SearchResult'
+            type: object
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              url:
+                type: string
+                format: uri
         errorMessage:
           type: string
     WikipediaData:
@@ -206,24 +214,6 @@ components:
               type: string
         errorMessage:
           type: string
-    FAQData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              question:
-                type: string
-              answer:
-                type: string
-        errorMessage:
-          type: string
     SearchResult:
       type: object
       properties:
@@ -238,52 +228,7 @@ components:
           type: string
         description:
           type: string
-    MetacriticReviewData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              username:
-                type: string
-              date:
-                type: string
-              rate:
-                type: string
-              title:
-                type: string
-              content:
-                type: string
-        errorMessage:
-          type: string
-    ExternalSiteData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              id:
-                type: string
-              url:
-                type: string
-                format: uri
-        errorMessage:
-          type: string
-    CompanyData:
+    KeywordData:
       type: object
       properties:
         id:
@@ -328,6 +273,61 @@ components:
                 type: string
               content:
                 type: string
+        errorMessage:
+          type: string
+    FAQData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              question:
+                type: string
+              answer:
+                type: string
+        errorMessage:
+          type: string
+    MetacriticReviewData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              username:
+                type: string
+              date:
+                type: string
+              rate:
+                type: string
+              title:
+                type: string
+              content:
+                type: string
+        errorMessage:
+          type: string
+    CompanyData:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
         errorMessage:
           type: string
   parameters:

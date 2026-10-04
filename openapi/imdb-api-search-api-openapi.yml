@@ -216,6 +216,13 @@ components:
         description:
           type: string
   parameters:
+    Expression:
+      name: expression
+      in: path
+      required: true
+      description: URL-encoded search expression.
+      schema:
+        type: string
     ApiKey:
       name: apiKey
       in: path
@@ -231,13 +238,6 @@ components:
       schema:
         type: string
         default: en
-    Expression:
-      name: expression
-      in: path
-      required: true
-      description: URL-encoded search expression.
-      schema:
-        type: string
   securitySchemes:
     ApiKeyInPath:
       type: apiKey

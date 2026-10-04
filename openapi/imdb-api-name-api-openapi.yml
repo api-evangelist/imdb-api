@@ -76,25 +76,17 @@ paths:
                 $ref: '#/components/schemas/NameAwardData'
 components:
   schemas:
-    NameAwardData:
+    SimilarShort:
       type: object
       properties:
-        imDbId:
+        id:
           type: string
-        name:
+        title:
           type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              eventName:
-                type: string
-              eventYear:
-                type: string
-              awards:
-                type: array
-        errorMessage:
+        image:
+          type: string
+          format: uri
+        imDbRating:
           type: string
     NameData:
       type: object
@@ -128,17 +120,25 @@ components:
             type: object
         errorMessage:
           type: string
-    SimilarShort:
+    NameAwardData:
       type: object
       properties:
-        id:
+        imDbId:
           type: string
-        title:
+        name:
           type: string
-        image:
-          type: string
-          format: uri
-        imDbRating:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              eventName:
+                type: string
+              eventYear:
+                type: string
+              awards:
+                type: array
+        errorMessage:
           type: string
   parameters:
     ApiKey:
