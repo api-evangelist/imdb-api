@@ -81,3 +81,33 @@ notes:
   - All paid plans operate on non-recurring monthly billing (user re-purchases as needed).
   - Quota is enforced per day and resets daily; remaining quota is observable via the /API/Usage endpoint.
   - Combining Title with options (FullActor, FullCast, Posters, Images, Trailer, Ratings, Wikipedia) increases per-call quota cost (one count per option).
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Standard
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Plus
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Premium
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
