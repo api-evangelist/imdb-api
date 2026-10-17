@@ -189,19 +189,22 @@ paths:
                 $ref: '#/components/schemas/BoxOfficeAllTimeData'
 components:
   schemas:
-    SearchResult:
+    IMDbListData:
       type: object
       properties:
-        id:
+        listId:
           type: string
-        resultType:
-          type: string
-        image:
-          type: string
-          format: uri
         title:
           type: string
-        description:
+        listType:
+          type: string
+        author:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
           type: string
     Top250Data:
       type: object
@@ -263,48 +266,6 @@ components:
                 type: string
         errorMessage:
           type: string
-    BoxOfficeWeekendData:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-              rank:
-                type: string
-              title:
-                type: string
-              weekend:
-                type: string
-              gross:
-                type: string
-              weeks:
-                type: string
-              image:
-                type: string
-                format: uri
-        errorMessage:
-          type: string
-    IMDbListData:
-      type: object
-      properties:
-        listId:
-          type: string
-        title:
-          type: string
-        listType:
-          type: string
-        author:
-          type: string
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchResult'
-        errorMessage:
-          type: string
     NewMovieData:
       type: object
       properties:
@@ -338,6 +299,20 @@ components:
                 type: string
         errorMessage:
           type: string
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        resultType:
+          type: string
+        image:
+          type: string
+          format: uri
+        title:
+          type: string
+        description:
+          type: string
     BoxOfficeAllTimeData:
       type: object
       properties:
@@ -360,6 +335,31 @@ components:
                 type: string
               year:
                 type: string
+        errorMessage:
+          type: string
+    BoxOfficeWeekendData:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              rank:
+                type: string
+              title:
+                type: string
+              weekend:
+                type: string
+              gross:
+                type: string
+              weeks:
+                type: string
+              image:
+                type: string
+                format: uri
         errorMessage:
           type: string
   parameters:

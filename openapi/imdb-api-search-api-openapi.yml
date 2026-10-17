@@ -192,15 +192,6 @@ components:
             $ref: '#/components/schemas/SearchResult'
         errorMessage:
           type: string
-    AdvancedSearchData:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchResult'
-        errorMessage:
-          type: string
     SearchResult:
       type: object
       properties:
@@ -214,6 +205,15 @@ components:
         title:
           type: string
         description:
+          type: string
+    AdvancedSearchData:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        errorMessage:
           type: string
   parameters:
     Expression:

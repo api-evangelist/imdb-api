@@ -164,8 +164,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/KeywordData'
 components:
+  parameters:
+    ImdbId:
+      name: id
+      in: path
+      required: true
+      description: IMDb title id in tt-format (e.g. tt1375666).
+      schema:
+        type: string
+        pattern: ^tt\\d+$
+    ApiKey:
+      name: apiKey
+      in: path
+      required: true
+      description: Account API key.
+      schema:
+        type: string
+    Lang:
+      name: lang
+      in: path
+      required: true
+      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
+      schema:
+        type: string
+        default: en
   schemas:
-    ExternalSiteData:
+    MetacriticReviewData:
       type: object
       properties:
         imDbId:
@@ -177,58 +201,37 @@ components:
           items:
             type: object
             properties:
-              name:
+              username:
                 type: string
-              id:
+              date:
                 type: string
-              url:
+              rate:
                 type: string
-                format: uri
+              title:
+                type: string
+              content:
+                type: string
         errorMessage:
           type: string
-    WikipediaData:
+    FAQData:
       type: object
       properties:
         imDbId:
           type: string
         title:
           type: string
-        url:
-          type: string
-          format: uri
-        language:
-          type: string
-        plotShort:
-          type: object
-          properties:
-            plainText:
-              type: string
-            html:
-              type: string
-        plotFull:
-          type: object
-          properties:
-            plainText:
-              type: string
-            html:
-              type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              question:
+                type: string
+              answer:
+                type: string
         errorMessage:
           type: string
-    SearchResult:
-      type: object
-      properties:
-        id:
-          type: string
-        resultType:
-          type: string
-        image:
-          type: string
-          format: uri
-        title:
-          type: string
-        description:
-          type: string
-    KeywordData:
+    CompanyData:
       type: object
       properties:
         id:
@@ -275,49 +278,49 @@ components:
                 type: string
         errorMessage:
           type: string
-    FAQData:
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+        resultType:
+          type: string
+        image:
+          type: string
+          format: uri
+        title:
+          type: string
+        description:
+          type: string
+    WikipediaData:
       type: object
       properties:
         imDbId:
           type: string
         title:
           type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              question:
-                type: string
-              answer:
-                type: string
+        url:
+          type: string
+          format: uri
+        language:
+          type: string
+        plotShort:
+          type: object
+          properties:
+            plainText:
+              type: string
+            html:
+              type: string
+        plotFull:
+          type: object
+          properties:
+            plainText:
+              type: string
+            html:
+              type: string
         errorMessage:
           type: string
-    MetacriticReviewData:
-      type: object
-      properties:
-        imDbId:
-          type: string
-        title:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              username:
-                type: string
-              date:
-                type: string
-              rate:
-                type: string
-              title:
-                type: string
-              content:
-                type: string
-        errorMessage:
-          type: string
-    CompanyData:
+    KeywordData:
       type: object
       properties:
         id:
@@ -330,30 +333,27 @@ components:
             $ref: '#/components/schemas/SearchResult'
         errorMessage:
           type: string
-  parameters:
-    ImdbId:
-      name: id
-      in: path
-      required: true
-      description: IMDb title id in tt-format (e.g. tt1375666).
-      schema:
-        type: string
-        pattern: ^tt\\d+$
-    ApiKey:
-      name: apiKey
-      in: path
-      required: true
-      description: Account API key.
-      schema:
-        type: string
-    Lang:
-      name: lang
-      in: path
-      required: true
-      description: Two-letter language code (e.g. en, fr, de, es, ru). Use 'en' for default.
-      schema:
-        type: string
-        default: en
+    ExternalSiteData:
+      type: object
+      properties:
+        imDbId:
+          type: string
+        title:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              id:
+                type: string
+              url:
+                type: string
+                format: uri
+        errorMessage:
+          type: string
   securitySchemes:
     ApiKeyInPath:
       type: apiKey

@@ -76,18 +76,6 @@ paths:
                 $ref: '#/components/schemas/NameAwardData'
 components:
   schemas:
-    SimilarShort:
-      type: object
-      properties:
-        id:
-          type: string
-        title:
-          type: string
-        image:
-          type: string
-          format: uri
-        imDbRating:
-          type: string
     NameData:
       type: object
       properties:
@@ -119,6 +107,18 @@ components:
           items:
             type: object
         errorMessage:
+          type: string
+    SimilarShort:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        image:
+          type: string
+          format: uri
+        imDbRating:
           type: string
     NameAwardData:
       type: object
