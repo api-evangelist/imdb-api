@@ -1,4 +1,4 @@
-# IMDb-API (imdb-api)
+# IMDb-API
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,91 +66,176 @@
 
 Community web service (operated under the IMDb-API / TV-API brand) providing movie, TV series and cast information in JSON. Aggregates data from IMDb, TheMovieDb, Wikipedia, Rotten Tomatoes, Metacritic, TheTVDB, FilmAffinity and YouTube. Originally hosted at imdb-api.com and migrated to tv-api.com. Operated by the IMDb-API GitHub user (open source C# client library and Windows client app). NOT an official IMDb / Amazon product — IMDb itself does not expose a public API; community scrapers such as this one (alongside OMDb, TMDB and Apify's IMDb scraper) fill the gap.
 
-**APIs.json:** [https://tv-api.com/](https://tv-api.com/)
+**Areas:** Video · Movies · TV · Entertainment · Metadata · Ratings · Public APIs
 
-## Tags
+## IMDb-API on APIs.io
 
-- Video
-- Movies
-- TV
-- Entertainment
-- Metadata
-- Ratings
-- Public APIs
+Everything profiled for IMDb-API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/imdb-api/](https://apis.io/providers/imdb-api/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (6)
 
-- **Created:** 2026-05-28
-- **Modified:** 2026-05-30
+- [IMDb-API External API](https://apis.io/apis/imdb-api/imdb-api-external-api/) — Wikipedia, external sites, reviews, FAQ and other ancillary data.
+- [IMDb-API Lists API](https://apis.io/apis/imdb-api/imdb-api-lists-api/) — Curated and aggregated lists (Top 250, Most Popular, In Theaters, Coming Soon, Box Office).
+- [IMDb-API Name API](https://apis.io/apis/imdb-api/imdb-api-name-api/) — People (actors, directors, writers) information and awards.
+- [IMDb-API Search API](https://apis.io/apis/imdb-api/imdb-api-search-api/) — Free-text and faceted search across titles, names, companies and keywords.
+- [IMDb-API Title API](https://apis.io/apis/imdb-api/imdb-api-title-api/) — Movie and series metadata, posters, images, trailers, cast, ratings.
+- [IMDb-API Tools API](https://apis.io/apis/imdb-api/imdb-api-tools-api/) — Image utilities and account usage.
 
-## APIs
+### Published properties
 
-### IMDb-API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST JSON web service for movie, TV series, cast, ratings, images, trailers, lists and box office data. 30+ endpoints organized into Search, Title, Name, Lists, External and Tools categories. API key required; embedded in the request path. Originally documented at imdb-api.com and now served from tv-api.com.
+#### Agentic access (1)
 
-- **Human URL:** [https://tv-api.com/](https://tv-api.com/)
-- **Base URL:** `https://tv-api.com/`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Imdb Api Agentic Access](https://apis.io/agentic-access/imdb-api/imdb-api-agentic-access/)
 
-- Video
-- Movies
-- TV
-- Metadata
-- Ratings
+#### JSON Schema (5)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://tv-api.com/api)
-- [API Reference](https://tv-api.com/api)
-- [Sign Up](https://tv-api.com/Identity/Account/Register)
-- [Authentication](https://tv-api.com/api#authentication)
-- [OpenAPI](openapi/imdb-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/imdb-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/imdb-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/imdb-api-title-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/imdb-api-rating-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/imdb-api-name-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/imdb-api-search-result-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/imdb-api-usage-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/imdb-api-title-structure.json)
-- [JSON Structure](json-structure/imdb-api-rating-structure.json)
-- [JSON Structure](json-structure/imdb-api-name-structure.json)
-- [J S O N- L D](json-ld/imdb-api-context.jsonld)
-- [Example](examples/imdb-api-search-example.json)
-- [Example](examples/imdb-api-title-example.json)
-- [Example](examples/imdb-api-ratings-example.json)
-- [Example](examples/imdb-api-fullcast-example.json)
-- [Example](examples/imdb-api-top250movies-example.json)
-- [Example](examples/imdb-api-usage-example.json)
-- [Rate Limits](rate-limits/imdb-api-rate-limits.yml)
-- [Plans](plans/imdb-api-plans-pricing.yml)
+- [Name](https://apis.io/schemas/imdb-api/imdb-api-name/)
+- [Rating](https://apis.io/schemas/imdb-api/imdb-api-rating/)
+- [SearchResult](https://apis.io/schemas/imdb-api/imdb-api-search-result/)
+- [Title](https://apis.io/schemas/imdb-api/imdb-api-title/)
+- [Usage](https://apis.io/schemas/imdb-api/imdb-api-usage/)
 
-## Common Properties
+#### JSON Structure (3)
+
+Data models expressed in JSON Structure.
+
+- [Imdb Api Name Structure](https://apis.io/json-structure/imdb-api/imdb-api-name-structure/)
+- [Imdb Api Rating Structure](https://apis.io/json-structure/imdb-api/imdb-api-rating-structure/)
+- [Imdb Api Title Structure](https://apis.io/json-structure/imdb-api/imdb-api-title-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Imdb Api Context](https://apis.io/jsonld/imdb-api/imdb-api-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [imdb-api-vocabulary](https://apis.io/vocabularies/imdb-api/imdb-api-vocabulary/)
+
+#### Examples (6)
+
+Example requests and responses.
+
+- [Imdb Api Fullcast Example](https://apis.io/examples/imdb-api/imdb-api-fullcast-example/)
+- [Imdb Api Ratings Example](https://apis.io/examples/imdb-api/imdb-api-ratings-example/)
+- [Imdb Api Search Example](https://apis.io/examples/imdb-api/imdb-api-search-example/)
+- [Imdb Api Title Example](https://apis.io/examples/imdb-api/imdb-api-title-example/)
+- [Imdb Api Top250Movies Example](https://apis.io/examples/imdb-api/imdb-api-top250movies-example/)
+- [Imdb Api Usage Example](https://apis.io/examples/imdb-api/imdb-api-usage-example/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [IMDb-API (TV-API)](https://apis.io/collections/imdb-api/open-imdb-api/)
+- [IMDb-API (TV-API) External API](https://apis.io/collections/imdb-api/open-imdb-api-external-api/)
+- [IMDb-API (TV-API) External Lists API](https://apis.io/collections/imdb-api/open-imdb-api-lists-api/)
+- [IMDb-API (TV-API) External Name API](https://apis.io/collections/imdb-api/open-imdb-api-name-api/)
+- [IMDb-API (TV-API) External Search API](https://apis.io/collections/imdb-api/open-imdb-api-search-api/)
+- [IMDb-API (TV-API) External Title API](https://apis.io/collections/imdb-api/open-imdb-api-title-api/)
+- [IMDb-API (TV-API) External Tools API](https://apis.io/collections/imdb-api/open-imdb-api-tools-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [IMDb-API — jsonschema rules](https://apis.io/rules/imdb-api/imdb-api-jsonschema-spectral-rules/)
+- [IMDb-API API Rules](https://apis.io/rules/imdb-api/imdb-api-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Imdb Api Authentication](https://apis.io/security/imdb-api/imdb-api-authentication/)
+- [Imdb Api Domain Security](https://apis.io/security/imdb-api/imdb-api-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Imdb Api Plans Pricing](https://apis.io/plans/imdb-api/imdb-api-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Imdb Api Rate Limits](https://apis.io/rate-limits/imdb-api/imdb-api-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Imdb Api Finops](https://apis.io/finops/imdb-api/imdb-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://tv-api.com/)
-- [Legacy Website](https://imdb-api.com/)
 - [Pricing](https://tv-api.com/pricing)
-- [Sign Up](https://tv-api.com/Identity/Account/Register)
-- [GitHub Organization](https://github.com/IMDb-API)
-- [GitHub Repository](https://github.com/IMDb-API/IMDbApiLib)
-- [GitHub Repository](https://github.com/IMDb-API/IMDbApiClient)
-- [SDK](https://github.com/IMDb-API/IMDbApiLib)
-- [Client](https://github.com/IMDb-API/IMDbApiClient)
-- [Public APIs Listing](https://github.com/public-apis/public-apis)
-- [Spectral Rules](rules/imdb-api-rules.yml)
-- [Vocabulary](vocabulary/imdb-api-vocabulary.yml)
-- [Plans](plans/imdb-api-plans-pricing.yml)
-- [Rate Limits](rate-limits/imdb-api-rate-limits.yml)
-- [Fin Ops](finops/imdb-api-finops.yml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
-- [Tools](undefined)
+- [Blog](https://tv-api.com/blog/)
+- [GitHub](https://github.com/IMDb-API)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 40.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 63.0 |
+| Contract governance | 27.3 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 38.1 |
+| Access clarity | 31.6 |
+
+**Agent readiness 23.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/imdb-api/](https://apis.io/providers/imdb-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for IMDb-API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/imdb-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
